@@ -29,4 +29,12 @@ def define_env(env):
         ))
     print('foo')
     env.variables['chains'] = chains
- 
+
+
+    element_details = []
+    for elm in schex.elements.values():
+        element_details.append({
+            'elm': elm,
+            'allowed_elms': elm.iter(),
+        })
+    env.variables['element_details'] = element_details
