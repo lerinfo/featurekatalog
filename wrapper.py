@@ -69,4 +69,23 @@ if __name__ == "__main__":
 
         table.add_row(key, val)
 
+    for type in schex._type_children.items():
+        key = k.prefixed_name if k is not None else "None"
+        val = ", ".join(v.prefixed_name for v in values)
+
+        table.add_row(key, val)
+
     console.print(table)
+
+    print()
+    print('### Root types: ###')
+
+    for roottype in schex.iter_type_roots():
+        print("  -", roottype.prefixed_name)
+
+    print()
+    print('### Root types, with their children: ###')
+    for roottype in schex.iter_type_roots():
+        print("  -", roottype.prefixed_name)
+        for child in schex._type_children[roottype]:
+            print("    -", child.prefixed_name)
