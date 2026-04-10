@@ -53,6 +53,12 @@ class SchemaEx:
     def iter_type_roots(self) -> Iterator[XsdType]:
         yield from self._type_children.get(None)
 
+    def iter_type_ancestors(self, xsd_type: XsdType) -> Iterator[XsdType]:
+        parent = getattr(xsd_type, "base_type", None)
+        while parent is not None:
+            yield parent
+            parent = getattr(parent, "base_type", None)
+
 
 if __name__ == "__main__":
     schex: SchemaEx = SchemaEx('schemas/2.2_ler.xsd')

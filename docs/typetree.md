@@ -8,6 +8,7 @@ schema.url: {{schex.schema.url}}
 <th>name</th>
 <th>type</th>
 <th>abstract</th>
+<th>typechain</th>
 
 </tr>
 {% for depth, xsdtype in absgmltype_tree %}
@@ -21,6 +22,10 @@ schema.url: {{schex.schema.url}}
 <td class='flag'>
 {{'abstract' if xsdtype.abstract else ''}}
 </td>
+<td>
+<a href="/typechain/#{{ xsdtype.prefixed_name | lower | replace(':', '-') }}">typechain</a>
+</td>
+
 </tr>
 {% endfor %}
 </table>

@@ -17,5 +17,15 @@ def define_env(env):
 
     absgmltype = schex.maps.types['{http://www.opengis.net/gml/3.2}AbstractGMLType']
     tree = list(schex.iter_type_tree(absgmltype))
-    
     env.variables['absgmltype_tree'] = tree
+
+    chains = []
+    for depth,xsdtype in tree:
+        l = [xsdtype] + list(schex.iter_type_ancestors(xsdtype))
+        l.reverse()
+        chains.append((
+            xsdtype, 
+            l,
+        ))
+    print('foo')
+    env.variables['chains'] = chains

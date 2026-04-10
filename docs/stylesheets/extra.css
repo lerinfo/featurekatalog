@@ -6,6 +6,7 @@ table.tree-table th,
 table.tree-table td {
   border: 1px solid black;
   padding: 4px;
+  font-size: 8pt;
 }
 
 table.tree-table th {
@@ -21,3 +22,10 @@ table.tree-table th {
   font-size: 8pt;
   text-align: center;
 }
+
+h2 {
+    margin-top:50px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
