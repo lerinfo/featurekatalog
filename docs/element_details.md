@@ -10,6 +10,7 @@ This page shows a section for each XsdType, and in each section is shown the anc
 <tr>
 <th>name</th>
 <th>occurs</th>
+<th>required</th>
 <th>nillable</th>
 </tr>
 {% for subelm in elmdict.allowed_elms %}
@@ -19,6 +20,9 @@ This page shows a section for each XsdType, and in each section is shown the anc
 </td>
 <td>
 {{subelm.occurs}}
+</td>
+<td>
+{{'required' if (subelm.occurs[0] > 0) else ''}}
 </td>
 <td>
 {{'nillable' if subelm.nillable else ''}}
