@@ -3,7 +3,7 @@ from collections.abc import Iterator
 
 import tabulate
 from xmlschema import XMLSchema
-from xmlschema.validators import XsdType, XsdComplexType
+from xmlschema.validators import XsdType, XsdElement
 from tabulate import tabulate
 
 from rich.console import Console
@@ -118,3 +118,13 @@ if __name__ == "__main__":
 
     for x in schex.iter_type_tree(absgmltype):
         print(x[1].prefixed_name)
+
+    print()
+    print('### schex.elements.values ###')
+
+    for elm in schex.elements.values():
+        print(elm.prefixed_name)
+        for subelm in elm.iter():
+            assert isinstance(subelm, XsdElement), "Expected XsdType, got: " + repr(subelm)
+            print('  -', subelm.name)
+
