@@ -1,4 +1,5 @@
 from typing import Dict, List
+from collections.abc import Iterator
 
 import tabulate
 from xmlschema import XMLSchema
@@ -41,10 +42,15 @@ class SchemaEx:
     def __getattr__(self, name):
         return getattr(self._schema, name)
 
-    def iter_type_tree(self, xsd_type: XsdType = None):
-        yield from self._type_children.get(xsd_type, [])
+    def iter_type_tree(self, xsd_type: XsdType, depth: int = 0) -> Iterator[tuple[int, XsdType]]:
+        '''
+        yields (depth, xsd_type) for xsd_type and all its children, recursively.
+        '''
+        yield (depth, xsd_type)
+        for child in self._type_children.get(xsd_type, []):
+            yield from self.iter_type_tree(child, depth + 1)
 
-    def iter_type_roots(self) -> List[XsdType]:
+    def iter_type_roots(self) -> Iterator[XsdType]:
         yield from self._type_children.get(None)
 
 
@@ -89,3 +95,13 @@ if __name__ == "__main__":
         print("  -", roottype.prefixed_name)
         for child in schex._type_children[roottype]:
             print("    -", child.prefixed_name)
+
+    print()
+    print('### Root types, with their trees: ###')
+
+    for roottype in schex.iter_type_roots():
+        print("  -", roottype.prefixed_name)
+        for depth, child in schex.iter_type_tree(roottype):
+            if depth == 0:
+                continue
+            print("    " * depth + "- " + child.prefixed_name)
