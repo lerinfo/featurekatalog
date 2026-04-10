@@ -105,3 +105,10 @@ if __name__ == "__main__":
             if depth == 0:
                 continue
             print("    " * depth + "- " + child.prefixed_name)
+
+    print()
+    print('### absgmltype ###')
+    absgmltype = schex.maps.types['{http://www.opengis.net/gml/3.2}AbstractGMLType']
+
+    for x in schex.iter_type_tree(absgmltype):
+        print(x[1].prefixed_name)
