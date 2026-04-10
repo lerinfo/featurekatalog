@@ -1,6 +1,10 @@
 site_name: Kavaler
 plugins:
   - macros
+theme:
+  name: material
+  logo: img/kavaler_100px.png
+  favicon: img/kavaler_32px.png
 extra_css:
   - stylesheets/extra.css
 nav:

@@ -29,18 +29,13 @@ h2 {
     font-size: 30px;
 }
 
-/* Hide the left sidebar */
-.bs-sidebar {
-    display: none;
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 40px;
+    width: auto;
 }
 
-/* Increase spacing between top nav items */
-.navbar-nav > li {
-    margin-right: 20px;  /* adjust this value */
-}
-
-/* Strong emphasis for current page in navbar */
-.navbar-nav a.active {
-    text-decoration: underline;
-    font-weight: bold; /* optional, makes it stand out more */
+.md-header__button.md-logo {
+    margin: 0px;
+    padding: 0px;
 }
