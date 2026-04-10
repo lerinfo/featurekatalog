@@ -1,0 +1,5 @@
+site_name: Kavaler
+plugins:
+  - macros
+extra_css:
+  - stylesheets/extra.css
