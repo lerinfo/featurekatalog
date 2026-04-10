@@ -40,7 +40,7 @@ class SchemaEx:
         self._init_type_children()
 
     def __getattr__(self, name):
-        return getattr(self._schema, name)
+        return getattr(self.schema, name)
 
     def iter_type_tree(self, xsd_type: XsdType, depth: int = 0) -> Iterator[tuple[int, XsdType]]:
         '''
