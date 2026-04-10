@@ -1,6 +1,14 @@
 from typing import Dict, List
+
+import tabulate
 from xmlschema import XMLSchema
 from xmlschema.validators import XsdType, XsdComplexType
+from tabulate import tabulate
+
+from rich.console import Console
+from rich.table import Table
+from rich import box
+
 
 class SchemaEx:
     _type_children: Dict[XsdType|None, List[XsdType]] = None
@@ -40,10 +48,25 @@ class SchemaEx:
         yield from self._type_children.get(None)
 
 
-
 if __name__ == "__main__":
     schex: SchemaEx = SchemaEx('schemas/2.2_ler.xsd')
-    for k,v in schex._type_children.items():
-        keystr = k.prefixed_name if k is not None else 'None'
-        valname = ','.join([v.prefixed_name for v in v])
-        print(f"{keystr:<40}: {valname}")
+
+    console = Console()
+
+    table = Table(
+        show_header=True,
+        header_style="bold cyan",
+        box=box.SIMPLE,
+        show_lines=True,
+    )
+
+    table.add_column("Type", width=40, no_wrap=True, style="bold yellow")
+    table.add_column("Children", width=80, overflow="fold")
+
+    for k, values in schex._type_children.items():
+        key = k.prefixed_name if k is not None else "None"
+        val = ", ".join(v.prefixed_name for v in values)
+
+        table.add_row(key, val)
+
+    console.print(table)
