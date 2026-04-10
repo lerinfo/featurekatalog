@@ -16,5 +16,6 @@ def define_env(env):
     env.variables['schex'] = schex
 
     absgmltype = schex.maps.types['{http://www.opengis.net/gml/3.2}AbstractGMLType']
-    tree = schex.iter_type_tree(absgmltype)
+    tree = list(schex.iter_type_tree(absgmltype))
+    
     env.variables['absgmltype_tree'] = tree
