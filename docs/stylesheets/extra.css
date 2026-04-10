@@ -29,3 +29,18 @@ h2 {
     font-size: 30px;
 }
 
+/* Hide the left sidebar */
+.bs-sidebar {
+    display: none;
+}
+
+/* Increase spacing between top nav items */
+.navbar-nav > li {
+    margin-right: 20px;  /* adjust this value */
+}
+
+/* Strong emphasis for current page in navbar */
+.navbar-nav a.active {
+    text-decoration: underline;
+    font-weight: bold; /* optional, makes it stand out more */
+}

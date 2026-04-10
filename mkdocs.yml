@@ -3,3 +3,9 @@ plugins:
   - macros
 extra_css:
   - stylesheets/extra.css
+nav:
+  - Home: index.md
+  - Elements: elements.md
+  - Element Details: element_details.md
+  - Type Tree: typetree.md
+  - Type Chains: typechain.md
