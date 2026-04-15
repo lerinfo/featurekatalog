@@ -4,8 +4,9 @@ try:
     from xmlschema import XMLSchema
     sys.path.insert(0, os.path.dirname(__file__))
     from wrapper import SchemaEx
-except ImportError:
-    raise Exception("Problem with imports, inside main.py")
+except ImportError as e:
+    
+    raise Exception("Problem with imports, inside main.py", str(e))
     # Workaround for bug, to cause dramatic fail, see: 
     # https://github.com/fralau/mkdocs-macros-plugin/issues/285
 
