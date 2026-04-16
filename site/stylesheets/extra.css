@@ -1,0 +1,41 @@
+table.tree-table {
+  border-collapse: collapse;
+}
+
+table.tree-table th,
+table.tree-table td {
+  border: 1px solid black;
+  padding: 4px;
+  font-size: 8pt;
+}
+
+table.tree-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+.mono {
+  font-family: monospace;
+  font-size: 10pt;
+}
+
+.flag {
+  font-size: 8pt;
+  text-align: center;
+}
+
+h2 {
+    margin-top:50px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 40px;
+    width: auto;
+}
+
+.md-header__button.md-logo {
+    margin: 0px;
+    padding: 0px;
+}
