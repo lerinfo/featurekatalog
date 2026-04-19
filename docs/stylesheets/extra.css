@@ -39,3 +39,11 @@ h2 {
     margin: 0px;
     padding: 0px;
 }
+
+div.helping_text {
+  font-size: 6pt;
+  border: 2px gray solid;
+  color: gray;
+  padding: 5px;
+  margin-bottom: 10px;
+}
