@@ -1,0 +1,567 @@
+xmlschema class inheritance tree
+==============================
+
+Total classes found: 238
+Testing package classes: 9
+
+AbstractGenerator
+  PythonGenerator
+
+Argument
+  ConverterArgument
+  EncodeSourceArgument
+  ErrorsArgument
+  NamespaceMapperArgument
+  Option
+    AllowOption
+    BaseUrlOption
+    BlockOption
+    BooleanOption
+    ConverterOption
+    DecimalTypeOption
+    DefuseOption
+    DepthFillerOption
+    DictClassOption
+    ElementClassOption
+    ElementHookOption
+    ElementTypeOption
+    ExtraValidatorOption
+    FillerOption
+    IterParseOption
+    LazyOption
+    ListClassOption
+    LoaderClassOption
+    LocationsOption
+    LogLevelOption
+    MaxDepthOption
+    NamespacesOption
+    NillableStringOption
+    NonNegIntOption
+    OpenerOption
+    PositiveIntOption
+    SelectorOption
+    SourceOption
+    StringOption
+    UriMapperOption
+    ValidationHookOption
+    ValidationOption
+    ValueHookOption
+    XmlNsProcessingOption
+  SchemaArgument
+  SourceArgument
+  ValidationSourceArgument
+
+Arguments
+  NsMapperArguments
+    ConverterArguments
+  ValidationArguments
+    DecodeArguments
+    EncodeArguments
+
+BuilderProxy
+
+DataBindingMeta
+
+DataElement
+
+DefusableReader
+
+ElementPathMixin
+  XMLSchemaBase
+    XMLSchema10
+      ObservedXMLSchema10
+    XMLSchema11
+      ObservedXMLSchema11
+  XPathElement
+  XsdAnyElement
+    Xsd11AnyElement
+  XsdAssert
+  XsdElement
+    Xsd11Element
+
+ElementSelector
+  ElementPathSelector
+
+EmptyType
+
+FieldValueSelector
+
+GeneratorMeta
+
+GlobalMaps
+
+IOProtocol
+  FileWrapperProtocol
+
+IdentityCounter
+  KeyrefCounter
+
+IdentityXPathParser
+
+JSONLazyEncoder
+
+LimitsModule
+
+LocationPath
+  LocationPosixPath
+  LocationWindowsPath
+
+ModelVisitor
+  InterleavedModelVisitor
+  SuffixedModelVisitor
+
+NamespaceMapper
+  XMLSchemaConverter
+    AbderaConverter
+    BadgerFishConverter
+    ColumnarConverter
+    DataElementConverter
+      DataBindingConverter
+    GDataConverter
+    JsonMLConverter
+    ParkerConverter
+    UnorderedConverter
+
+NamespaceMapperContext
+
+NamespaceResourcesMap
+
+NamespaceView
+
+OccursCalculator
+
+ParticleMixin
+  XsdAnyElement
+    (seen)
+  XsdElement
+    (seen)
+  XsdGroup
+    Xsd11Group
+
+ResourceSettings
+  SchemaSettings
+
+SafeExpatParser
+
+SchemaCache
+
+SchemaFindParser
+
+SchemaLoader
+  LocationSchemaLoader
+  SafeSchemaLoader
+
+SchemaObserver
+
+StagedMap
+  AttributeGroupsMap
+  AttributesMap
+  ElementsMap
+  GroupsMap
+  NotationsMap
+  TypesMap
+
+ValidationContext
+  DecodeContext
+  EncodeContext
+
+ValidationMixin
+  XsdAnyAttribute
+    Xsd11AnyAttribute
+  XsdAnyElement
+    (seen)
+  XsdAttribute
+    Xsd11Attribute
+  XsdAttributeGroup
+  XsdComplexType
+    Xsd11ComplexType
+  XsdElement
+    (seen)
+  XsdGroup
+    (seen)
+  XsdSimpleType
+    XsdAtomic
+      XsdAtomicBuiltin
+      XsdAtomicRestriction
+        Xsd11AtomicRestriction
+    XsdList
+    XsdUnion
+      Xsd11Union
+
+Wsdl11Maps
+
+WsdlComponent
+  SoapParameter
+    SoapBody
+    SoapFault
+    SoapHeader
+      SoapHeaderFault
+  WsdlBinding
+  WsdlMessage
+  WsdlMessageReference
+    SoapHeader
+      (seen)
+    WsdlFault
+    WsdlInput
+    WsdlOutput
+  WsdlOperation
+  WsdlPort
+  WsdlPortType
+  WsdlService
+
+XMLResourceLoader
+  XMLResource
+    XmlDocument
+      Wsdl11Document
+
+XMLResourceManager
+
+XMLSchemaException
+  WsdlParseError
+  XMLResourceError
+    XMLResourceBlocked
+    XMLResourceExceeded
+    XMLResourceForbidden
+    XMLResourceOSError
+    XMLResourceParseError
+  XMLSchemaAttributeError
+  XMLSchemaKeyError
+  XMLSchemaNamespaceError
+  XMLSchemaOSError
+  XMLSchemaRuntimeError
+  XMLSchemaStopValidation
+  XMLSchemaTypeError
+  XMLSchemaValidatorError
+    XMLSchemaCircularityError
+    XMLSchemaModelError
+      XMLSchemaModelDepthError
+    XMLSchemaNotBuiltError
+    XMLSchemaParseError
+    XMLSchemaValidationError
+      XMLSchemaChildrenValidationError
+      XMLSchemaDecodeError
+      XMLSchemaEncodeError
+  XMLSchemaValueError
+
+XMLSchemaMeta
+
+XMLSchemaProxy
+
+XMLSchemaTestCase
+  XsdValidatorTestCase
+    TestSchema
+    TestValidator
+
+XMLSchemaWarning
+  XMLSchemaAssertPathWarning
+  XMLSchemaImportWarning
+  XMLSchemaIncludeWarning
+  XMLSchemaTypeTableWarning
+
+XsdAssertionXPath3Parser
+
+XsdAssertionXPathParser
+
+XsdBuilders
+  ObservedBuilders
+
+XsdSource
+
+XsdValidator
+  XMLSchemaBase
+    (seen)
+  XsdComponent
+    XsdAlternative
+    XsdAnnotation
+    XsdAssert
+      (seen)
+    XsdAttribute
+      (seen)
+    XsdAttributeGroup
+      (seen)
+    XsdElement
+      (seen)
+    XsdFacet
+      XsdAssertionFacet
+      XsdEnumerationFacets
+      XsdExplicitTimezoneFacet
+      XsdFractionDigitsFacet
+      XsdLengthFacet
+      XsdMaxExclusiveFacet
+      XsdMaxInclusiveFacet
+      XsdMaxLengthFacet
+      XsdMinExclusiveFacet
+      XsdMinInclusiveFacet
+      XsdMinLengthFacet
+      XsdPatternFacets
+      XsdTotalDigitsFacet
+      XsdWhiteSpaceFacet
+    XsdGroup
+      (seen)
+    XsdIdentity
+      XsdKey
+        Xsd11Key
+      XsdKeyref
+        Xsd11Keyref
+      XsdUnique
+        Xsd11Unique
+    XsdNotation
+    XsdOpenContent
+      XsdDefaultOpenContent
+    XsdSelector
+      XsdFieldSelector
+    XsdType
+      XsdComplexType
+        (seen)
+      XsdSimpleType
+        (seen)
+    XsdWildcard
+      XsdAnyAttribute
+        (seen)
+      XsdAnyElement
+        (seen)
+  XsdGlobals
+
+schema_cached_property
+
+
+Detailed class list
+-------------------
+arguments.py:50: class Argument(Generic)
+arguments.py:106: class Option(Argument)
+arguments.py:209: class BooleanOption(Option)
+arguments.py:213: class StringOption(Option)
+arguments.py:217: class NillableStringOption(Option)
+arguments.py:221: class PositiveIntOption(Option)
+arguments.py:225: class NonNegIntOption(Option)
+arguments.py:232: class SourceArgument(Argument)
+arguments.py:249: class BaseUrlOption(Option)
+arguments.py:282: class AllowOption(Option)
+arguments.py:286: class DefuseOption(Option)
+arguments.py:290: class LazyOption(Option)
+arguments.py:294: class BlockOption(Option)
+arguments.py:313: class UriMapperOption(Option)
+arguments.py:317: class OpenerOption(Option)
+arguments.py:321: class IterParseOption(Option)
+arguments.py:329: class SelectorOption(Option)
+arguments.py:356: class ValidationOption(Option)
+arguments.py:360: class NamespacesOption(Option)
+arguments.py:364: class LogLevelOption(Option)
+arguments.py:375: class LocationsOption(Option)
+arguments.py:379: class ElementTypeOption(Option)
+arguments.py:391: class XmlNsProcessingOption(Option)
+arguments.py:395: class SourceOption(Option)
+arguments.py:399: class DictClassOption(Option)
+arguments.py:403: class ListClassOption(Option)
+arguments.py:407: class DecimalTypeOption(Option)
+arguments.py:416: class ElementClassOption(Option)
+arguments.py:425: class MaxDepthOption(Option)
+arguments.py:429: class FillerOption(Option)
+arguments.py:433: class DepthFillerOption(Option)
+arguments.py:437: class ExtraValidatorOption(Option)
+arguments.py:441: class ValidationHookOption(Option)
+arguments.py:445: class ValueHookOption(Option)
+arguments.py:449: class ElementHookOption(Option)
+arguments.py:456: class Arguments()
+arguments.py:465: class NsMapperArguments(Arguments)
+arguments.py:473: class ConverterArguments(NsMapperArguments)
+caching.py:29: class SchemaCache()
+caching.py:114: class schema_cached_property(Generic)
+converters/__init__.py:36: class ConverterOption(Option)
+converters/abdera.py:24: class AbderaConverter(XMLSchemaConverter)
+converters/badgerfish.py:24: class BadgerFishConverter(XMLSchemaConverter)
+converters/base.py:55: class XMLSchemaConverter(NamespaceMapper)
+converters/columnar.py:23: class ColumnarConverter(XMLSchemaConverter)
+converters/gdata.py:24: class GDataConverter(XMLSchemaConverter)
+converters/jsonml.py:22: class JsonMLConverter(XMLSchemaConverter)
+converters/parker.py:22: class ParkerConverter(XMLSchemaConverter)
+converters/unordered.py:21: class UnorderedConverter(XMLSchemaConverter)
+dataobjects.py:33: class DataElement(MutableSequence)
+dataobjects.py:428: class DataBindingMeta(ABCMeta)
+dataobjects.py:462: class DataElementConverter(XMLSchemaConverter)
+dataobjects.py:581: class DataBindingConverter(DataElementConverter)
+documents.py:39: class SchemaArgument(Argument)
+documents.py:131: class JSONLazyEncoder(json.JSONEncoder)
+documents.py:517: class XmlDocument(XMLResource)
+exceptions.py:13: class XMLSchemaException(Exception)
+exceptions.py:17: class XMLSchemaOSError(XMLSchemaException, OSError)
+exceptions.py:21: class XMLSchemaAttributeError(XMLSchemaException, AttributeError)
+exceptions.py:25: class XMLSchemaTypeError(XMLSchemaException, TypeError)
+exceptions.py:29: class XMLSchemaValueError(XMLSchemaException, ValueError)
+exceptions.py:33: class XMLSchemaKeyError(XMLSchemaException, KeyError)
+exceptions.py:37: class XMLSchemaRuntimeError(XMLSchemaException, RuntimeError)
+exceptions.py:41: class XMLSchemaNamespaceError(XMLSchemaException, RuntimeError)
+exceptions.py:45: class XMLSchemaWarning(Warning)
+exceptions.py:49: class XMLResourceError(XMLSchemaException)
+exceptions.py:56: class XMLResourceParseError(XMLResourceError, ParseError)
+exceptions.py:60: class XMLResourceExceeded(XMLResourceError)
+exceptions.py:64: class XMLResourceBlocked(XMLResourceError)
+exceptions.py:68: class XMLResourceForbidden(XMLResourceError)
+exceptions.py:72: class XMLResourceOSError(XMLResourceError, OSError)
+exports.py:37: class XsdSource()
+extras/codegen.py:64: class GeneratorMeta(ABCMeta)
+extras/codegen.py:119: class AbstractGenerator(ABC)
+extras/codegen.py:566: class PythonGenerator(AbstractGenerator)
+extras/wsdl.py:48: class WsdlParseError(XMLSchemaException, SyntaxError)
+extras/wsdl.py:52: class Wsdl11Maps()
+extras/wsdl.py:70: class WsdlComponent()
+extras/wsdl.py:114: class WsdlMessage(WsdlComponent)
+extras/wsdl.py:164: class WsdlPortType(WsdlComponent)
+extras/wsdl.py:184: class WsdlOperation(WsdlComponent)
+extras/wsdl.py:246: class WsdlMessageReference(WsdlComponent)
+extras/wsdl.py:260: class WsdlInput(WsdlMessageReference)
+extras/wsdl.py:265: class WsdlOutput(WsdlMessageReference)
+extras/wsdl.py:270: class WsdlFault(WsdlMessageReference)
+extras/wsdl.py:274: class SoapParameter(WsdlComponent)
+extras/wsdl.py:290: class SoapBody(SoapParameter)
+extras/wsdl.py:298: class SoapFault(SoapParameter)
+extras/wsdl.py:302: class SoapHeader(WsdlMessageReference, SoapParameter)
+extras/wsdl.py:320: class SoapHeaderFault(SoapHeader)
+extras/wsdl.py:324: class WsdlBinding(WsdlComponent)
+extras/wsdl.py:422: class WsdlPort(WsdlComponent)
+extras/wsdl.py:444: class WsdlService(WsdlComponent)
+extras/wsdl.py:463: class Wsdl11Document(XmlDocument)
+limits.py:20: class LimitsModule(ModuleType)
+loaders.py:39: class SchemaLoader()
+loaders.py:367: class LocationSchemaLoader(SchemaLoader)
+loaders.py:383: class SafeSchemaLoader(SchemaLoader)
+loaders.py:436: class LoaderClassOption(Option)
+locations.py:23: class NamespaceResourcesMap(MutableMapping)
+namespaces.py:32: class NamespaceMapperContext(NamedTuple)
+namespaces.py:40: class NamespaceMapper(MutableMapping)
+namespaces.py:350: class NamespaceView(Mapping)
+resources/sax.py:22: class SafeExpatParser(expatreader.ExpatParser)
+resources/xml_loader.py:32: class XMLResourceLoader()
+resources/xml_resource.py:45: class XMLResourceManager()
+resources/xml_resource.py:61: class XMLResource(XMLResourceLoader)
+settings.py:34: class ResourceSettings()
+settings.py:143: class SchemaSettings(ResourceSettings)
+testing/_builders.py:81: class TestSchema(XsdValidatorTestCase)
+testing/_builders.py:263: class TestValidator(XsdValidatorTestCase)
+testing/_observers.py:22: class SchemaObserver()
+testing/_observers.py:32: class SchemaObserver.BuilderProxy(builder)
+testing/_observers.py:81: class ObservedBuilders(XsdBuilders)
+testing/_observers.py:95: class ObservedXMLSchema10(XMLSchema10)
+testing/_observers.py:99: class ObservedXMLSchema11(XMLSchema11)
+testing/_test_case_classes.py:36: class XMLSchemaTestCase(unittest.TestCase)
+testing/_test_case_classes.py:52: class XsdValidatorTestCase(XMLSchemaTestCase)
+utils/decoding.py:19: class EmptyType()
+utils/paths.py:38: class LocationPath(PurePath)
+utils/paths.py:150: class LocationPosixPath(LocationPath, PurePosixPath)
+utils/paths.py:155: class LocationWindowsPath(LocationPath, PureWindowsPath)
+utils/protocols.py:14: class IOProtocol(Protocol)
+utils/protocols.py:32: class FileWrapperProtocol(IOProtocol, Protocol)
+utils/streams.py:24: class DefusableReader(BufferedIOBase)
+validators/assertions.py:36: class XsdAssert(XsdComponent, ElementPathMixin)
+validators/attributes.py:38: class XsdAttribute(XsdComponent, ValidationMixin)
+validators/attributes.py:298: class Xsd11Attribute(XsdAttribute)
+validators/attributes.py:329: class XsdAttributeGroup(MutableMapping, XsdComponent, ValidationMixin)
+validators/builders.py:80: class XsdBuilders()
+validators/builders.py:367: class StagedMap(Mapping)
+validators/builders.py:542: class TypesMap(StagedMap)
+validators/builders.py:617: class NotationsMap(StagedMap)
+validators/builders.py:624: class AttributesMap(StagedMap)
+validators/builders.py:631: class AttributeGroupsMap(StagedMap)
+validators/builders.py:638: class ElementsMap(StagedMap)
+validators/builders.py:645: class GroupsMap(StagedMap)
+validators/builders.py:652: class GlobalMaps(NamedTuple)
+validators/complex_types.py:35: class XsdComplexType(XsdType, ValidationMixin)
+validators/complex_types.py:791: class Xsd11ComplexType(XsdComplexType)
+validators/elements.py:59: class XsdElement(XsdComponent, ParticleMixin, ElementPathMixin, ValidationMixin)
+validators/elements.py:1243: class Xsd11Element(XsdElement)
+validators/elements.py:1450: class XsdAlternative(XsdComponent)
+validators/exceptions.py:34: class XMLSchemaValidatorError(XMLSchemaException)
+validators/exceptions.py:198: class XMLSchemaCircularityError(XMLSchemaValidatorError)
+validators/exceptions.py:213: class XMLSchemaNotBuiltError(XMLSchemaValidatorError, RuntimeError)
+validators/exceptions.py:235: class XMLSchemaParseError(XMLSchemaValidatorError, SyntaxError)
+validators/exceptions.py:259: class XMLSchemaModelError(XMLSchemaValidatorError, ValueError)
+validators/exceptions.py:276: class XMLSchemaModelDepthError(XMLSchemaModelError)
+validators/exceptions.py:288: class XMLSchemaValidationError(XMLSchemaValidatorError, ValueError)
+validators/exceptions.py:392: class XMLSchemaDecodeError(XMLSchemaValidationError)
+validators/exceptions.py:415: class XMLSchemaEncodeError(XMLSchemaValidationError)
+validators/exceptions.py:438: class XMLSchemaChildrenValidationError(XMLSchemaValidationError)
+validators/exceptions.py:536: class XMLSchemaStopValidation(XMLSchemaException)
+validators/exceptions.py:540: class XMLSchemaIncludeWarning(XMLSchemaWarning)
+validators/exceptions.py:544: class XMLSchemaImportWarning(XMLSchemaWarning)
+validators/exceptions.py:548: class XMLSchemaTypeTableWarning(XMLSchemaWarning)
+validators/exceptions.py:552: class XMLSchemaAssertPathWarning(XMLSchemaWarning)
+validators/facets.py:41: class XsdFacet(XsdComponent)
+validators/facets.py:114: class XsdWhiteSpaceFacet(XsdFacet)
+validators/facets.py:161: class XsdLengthFacet(XsdFacet)
+validators/facets.py:199: class XsdMinLengthFacet(XsdFacet)
+validators/facets.py:237: class XsdMaxLengthFacet(XsdFacet)
+validators/facets.py:275: class XsdMinInclusiveFacet(XsdFacet)
+validators/facets.py:315: class XsdMinExclusiveFacet(XsdFacet)
+validators/facets.py:359: class XsdMaxInclusiveFacet(XsdFacet)
+validators/facets.py:397: class XsdMaxExclusiveFacet(XsdFacet)
+validators/facets.py:441: class XsdTotalDigitsFacet(XsdFacet)
+validators/facets.py:490: class XsdFractionDigitsFacet(XsdFacet)
+validators/facets.py:551: class XsdExplicitTimezoneFacet(XsdFacet)
+validators/facets.py:596: class XsdEnumerationFacets(XsdFacet, MutableSequence)
+validators/facets.py:713: class XsdPatternFacets(XsdFacet, MutableSequence)
+validators/facets.py:826: class XsdAssertionFacet(XsdFacet)
+validators/groups.py:61: class XsdGroup(XsdComponent, MutableSequence, ParticleMixin, ValidationMixin)
+validators/groups.py:1216: class Xsd11Group(XsdGroup)
+validators/identities.py:57: class XsdSelector(XsdComponent)
+validators/identities.py:118: class XsdFieldSelector(XsdSelector)
+validators/identities.py:131: class XsdIdentity(XsdComponent)
+validators/identities.py:252: class XsdUnique(XsdIdentity)
+validators/identities.py:256: class XsdKey(XsdIdentity)
+validators/identities.py:260: class XsdKeyref(XsdIdentity)
+validators/identities.py:340: class Xsd11Unique(XsdUnique)
+validators/identities.py:348: class Xsd11Key(XsdKey)
+validators/identities.py:356: class Xsd11Keyref(XsdKeyref)
+validators/identities.py:364: class IdentityCounter()
+validators/identities.py:392: class KeyrefCounter(IdentityCounter)
+validators/identities.py:421: class FieldValueSelector()
+validators/models.py:177: class ModelVisitor()
+validators/models.py:737: class InterleavedModelVisitor(ModelVisitor)
+validators/models.py:789: class SuffixedModelVisitor(ModelVisitor)
+validators/notations.py:19: class XsdNotation(XsdComponent)
+validators/particles.py:18: class ParticleMixin()
+validators/particles.py:180: class OccursCalculator()
+validators/schemas.py:84: class XMLSchemaMeta(ABCMeta)
+validators/schemas.py:149: class XMLSchemaBase(XsdValidator, ElementPathMixin)
+validators/schemas.py:1797: class XMLSchema10(XMLSchemaBase)
+validators/schemas.py:1824: class XMLSchema11(XMLSchemaBase)
+validators/simple_types.py:43: class XsdSimpleType(XsdType, ValidationMixin)
+validators/simple_types.py:533: class XsdAtomic(XsdSimpleType)
+validators/simple_types.py:636: class XsdAtomicBuiltin(XsdAtomic)
+validators/simple_types.py:842: class XsdList(XsdSimpleType)
+validators/simple_types.py:1031: class XsdUnion(XsdSimpleType)
+validators/simple_types.py:1247: class Xsd11Union(XsdUnion)
+validators/simple_types.py:1251: class XsdAtomicRestriction(XsdAtomic)
+validators/simple_types.py:1537: class Xsd11AtomicRestriction(XsdAtomicRestriction)
+validators/validation.py:56: class ValidationSourceArgument(Argument)
+validators/validation.py:60: class EncodeSourceArgument(Argument)
+validators/validation.py:69: class NamespaceMapperArgument(Argument)
+validators/validation.py:73: class ConverterArgument(Argument)
+validators/validation.py:77: class ErrorsArgument(Argument)
+validators/validation.py:81: class ValidationArguments(Arguments)
+validators/validation.py:95: class DecodeArguments(ValidationArguments)
+validators/validation.py:107: class EncodeArguments(ValidationArguments)
+validators/validation.py:116: class ValidationContext()
+validators/validation.py:321: class DecodeContext(ValidationContext)
+validators/validation.py:374: class EncodeContext(ValidationContext)
+validators/validation.py:472: class ValidationMixin(Generic)
+validators/wildcards.py:33: class XsdWildcard(XsdComponent)
+validators/wildcards.py:391: class XsdAnyElement(XsdWildcard, ParticleMixin, ElementPathMixin, ValidationMixin)
+validators/wildcards.py:623: class XsdAnyAttribute(XsdWildcard, ValidationMixin)
+validators/wildcards.py:726: class Xsd11AnyElement(XsdAnyElement)
+validators/wildcards.py:805: class Xsd11AnyAttribute(XsdAnyAttribute)
+validators/wildcards.py:847: class XsdOpenContent(XsdComponent)
+validators/wildcards.py:899: class XsdDefaultOpenContent(XsdOpenContent)
+validators/xsd_globals.py:51: class XsdGlobals(XsdValidator, Collection)
+validators/xsdbase.py:47: class XsdValidator()
+validators/xsdbase.py:235: class XsdComponent(XsdValidator)
+validators/xsdbase.py:650: class XsdAnnotation(XsdComponent)
+validators/xsdbase.py:710: class XsdType(XsdComponent)
+xpath/assertion_parser.py:13: class XsdAssertionXPathParser(XPath2Parser)
+xpath/find_parser.py:20: class SchemaFindParser(XPath2Parser)
+xpath/identity_parser.py:23: class IdentityXPathParser(XPath2Parser)
+xpath/mixin.py:29: class ElementPathMixin(Sequence)
+xpath/mixin.py:176: class XPathElement(ElementPathMixin)
+xpath/proxy.py:27: class XMLSchemaProxy(AbstractSchemaProxy)
+xpath/selectors.py:114: class ElementSelector()
+xpath/selectors.py:220: class ElementPathSelector(ElementSelector)
+xpath/xpath3.py:21: class XsdAssertionXPath3Parser(XPath3Parser)
