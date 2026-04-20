@@ -22,13 +22,13 @@ if __name__ == "__main__":
     table.add_column("Type", width=40, no_wrap=True, style="bold yellow")
     table.add_column("Children", width=80, overflow="fold")
 
-    for k, values in schex._type_children.items():
+    for k, values in schex._type_hierarchy.items():
         key = k.prefixed_name if k is not None else "None"
         val = ", ".join(v.prefixed_name for v in values)
 
         table.add_row(key, val)
 
-    for type in schex._type_children.items():
+    for type in schex._type_hierarchy.items():
         key = k.prefixed_name if k is not None else "None"
         val = ", ".join(v.prefixed_name for v in values)
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     print('### Root types, with their children: ###')
     for roottype in schex.iter_type_roots():
         print("  -", roottype.prefixed_name)
-        for child in schex._type_children[roottype]:
+        for child in schex._type_hierarchy[roottype]:
             print("    -", child.prefixed_name)
 
     print()
@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     for roottype in schex.iter_type_roots():
         print("  -", roottype.prefixed_name)
-        for depth, child in schex.iter_type_tree(roottype):
+        for depth, child in schex.walk_type_hierarchy(roottype):
             if depth == 0:
                 continue
             print("    " * depth + "- " + child.prefixed_name)
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     print('### absgmltype ###')
     absgmltype = schex.maps.types['{http://www.opengis.net/gml/3.2}AbstractGMLType']
 
-    for x in schex.iter_type_tree(absgmltype):
+    for x in schex.walk_type_hierarchy(absgmltype):
         print(x[1].prefixed_name)
 
     print()
