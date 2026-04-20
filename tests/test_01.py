@@ -1,8 +1,9 @@
+import pytest
 from wrapper import SchemaEx
 
-schex = SchemaEx('schemas/2.2_ler.xsd')
+@pytest.fixture
+def schex():
+    return SchemaEx('schemas/2.2_ler.xsd')
 
-def test_01():
-    l = schex.elements.items()
-    assert len(l) == 26
-
+def test_01(schex):
+    assert len(schex.elements) == 26
