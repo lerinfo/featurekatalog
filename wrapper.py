@@ -2,7 +2,7 @@ from typing import Dict, List
 from collections.abc import Iterator
 
 from tabulate import tabulate
-from xmlschema.validators import XsdType, XsdComplexType
+from xmlschema.validators import XsdType, XsdComplexType, XsdGroup, XsdElement
 from xmlschema import XMLSchema
 
 
@@ -74,11 +74,3 @@ class SchemaEx:
         while parent is not None:
             yield parent
             parent = getattr(parent, "base_type", None)
-
-    def walk_elm_hierarchy(self, xsd_type: XsdType, depth: int = 0) -> Iterator[tuple[int, XsdType]]:
-        '''
-        Yield (depth, xsd_type) for the given type and recursively for its content.
-        '''
-        yield (depth, xsd_type)
-        if isinstance(xsd_type, XsdComplexType):
-            print(xsd_type.content.model)
