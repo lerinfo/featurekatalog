@@ -4,6 +4,8 @@ try:
     from xmlschema import XMLSchema
     sys.path.insert(0, os.path.dirname(__file__))
     from wrapper import SchemaEx
+    from pathlib import Path
+    import yaml
 except ImportError as e:
     
     raise Exception("Problem with imports, inside main.py", str(e))
@@ -39,3 +41,14 @@ def define_env(env):
             'allowed_elms': elm.iterchildren(),
         })
     env.variables['element_details'] = element_details
+
+    # load constraints
+
+    constraints_dir = Path("constraints")
+    constraints = []
+    for path in constraints_dir.glob("*.yml"):
+        with path.open(encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+            if data:  # skip empty files
+                constraints.extend(data)
+    env.variables['constraints'] = constraints
