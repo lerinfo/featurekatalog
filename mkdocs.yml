@@ -14,3 +14,4 @@ nav:
   - Type Tree: typetree.md
   - Type Chains: typechain.md
   - Constraints: constraints.md
+  - Constraints by name: constraints_by_name.md

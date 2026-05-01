@@ -7,6 +7,8 @@ Det er dog ikke alle feature types, der er taget med.
 
 Når jeg får fat i XMI-filer, så giver det nok mest mening at generere mine yml-filer dér fra.
 
+Bemærk, at name ikke er unik; det er kun kombinationen af feature_type og name, der unikt identificerer en regel.
+
 <table class='tree-table'>
 <tr>
 <th>feature_type</th>
