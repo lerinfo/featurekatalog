@@ -36,6 +36,6 @@ def define_env(env):
     for elm in schex.elements.values():
         element_details.append({
             'elm': elm,
-            'allowed_elms': elm.iter(),
+            'allowed_elms': elm.iterchildren(),
         })
     env.variables['element_details'] = element_details
