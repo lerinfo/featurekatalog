@@ -14,6 +14,7 @@ Bemærk, at name ikke er unik; det er kun kombinationen af feature_type og name,
 <table class='tree-table'>
 <tr>
 <th>feature_type</th>
+<th>code</th>
 <th>name</th>
 <th>expression</th>
 
@@ -22,6 +23,9 @@ Bemærk, at name ikke er unik; det er kun kombinationen af feature_type og name,
 <tr>
 <td class='mono'>
 {{con.feature_type}}
+</td>
+<td class='mono'>
+{{con.code}}
 </td>
 <td class='mono'>
 {{con.name}}
