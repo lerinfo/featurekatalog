@@ -15,3 +15,4 @@ nav:
   - Type Chains: typechain.md
   - Constraints: constraints.md
   - Constraints by name: constraints_by_name.md
+  - Other/general constraints: general_constraints.md
