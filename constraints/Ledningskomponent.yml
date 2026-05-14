@@ -1,4 +1,5 @@
 - feature_type: Ledningskomponent
+  code: Komp01
   name: geometriDatatyperestriktion
   expression: |
     Geometrien skal have en af følgende typer: GM_Point, GM_MultiPoint, GM_Curve, GM_MultiCurve, GM_Surface eller GM_MultiSurface.
@@ -19,6 +20,7 @@
     - gml:Ring som består af kurver der anvender lineær interpolation (se ovenfor)
 
 - feature_type: Ledningskomponent
+  code: Komp02
   name: vejledendeDybdeMåleenhedsrestriktion
   expression: |
     Måleenheden for den vejledende dybde i forhold til terræn ved etablering skal være millimeter.

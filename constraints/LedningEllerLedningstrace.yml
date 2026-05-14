@@ -1,4 +1,5 @@
 - feature_type: LedningEllerLedningstrace
+  code: LeTr01
   name: vejledendeDybdeMåleenhedsrestriktion
   expression: |
     Måleenheden for den vejledende dybde i forhold til terræn ved etablering skal være millimeter.

@@ -1,10 +1,12 @@
 - feature_type: Graveforespørgselssvar
+  code: Grav01
   name: forventetAfleveringstidspunktBetingelse
   expression: |
     Det forventede afleveringstidspunkt må ikke være angivet hvis typen af graveforespørgselssvaret ikke er "udtaget til manuel behandling".
     Det forventede afleveringstidspunkt må godt være angivet hvis typen af graveforespørgselssvaret er "udtaget til manuel behandling".
 
 - feature_type: Graveforespørgselssvar
+  code: Grav02
   name: idRestriktion
   expression: |
     id'et skal være en UUID, som defineret i [ITU-T X.667].
@@ -12,6 +14,7 @@
     "It is recommended that the hexadecimal representation used in all human-readable formats be restricted to lower-case letters. Software processing this representation is, however, required to accept both upper and lower case letters".
 
 - feature_type: Graveforespørgselssvar
+  code: Grav03
   name: indholdGM_ObjectSRIRestriktion
   expression: |
     En featuretype indeholdt i et graveforespørgselssvar skal anvende det sammensatte koordinatereferencesystem med URI http://www.opengis.net/def/crs/EPSG/0/7416 som koordinatereferencesystemet for attributter der har GM_Object eller en af dets subtyper som typer.
@@ -20,6 +23,7 @@
     Note 3: Det betyder, at fx Ledning.geometri og LinearDimension.dimensionLine skal anvende koordinatereferencesystemet med URI http://www.opengis.net/def/crs/EPSG/0/7416.
 
 - feature_type: Graveforespørgselssvar
+  code: Grav04
   name: indholdKoteSRIRestriktion
   expression: |
     En featuretype indeholdt i et graveforespørgselssvar skal anvende det vertikale koordinatereferencesystemet med URI http://www.opengis.net/def/crs/EPSG/0/5799 som koordinatereferencesystemet for attributter der repræsenterer en kote.

@@ -1,15 +1,18 @@
 - feature_type: Elledning
+  code: Elle01
   name: spændingsniveauMåleenhedsrestriktion
   expression: |
     Måleenheden for spændingsniveauet skal være kilovolt.
     Kilovolt skal angives med symbolet kV [UCUM].
 
 - feature_type: Elledning
+  code: Elle02
   name: udvendigDiameterBetingelse
   expression: |
     Den udvendige diameter skal være angivet hvis etableringstidspunktet er efter skæringsdatoen.
 
 - feature_type: Elledning
+  code: Elle03
   name: vejledendeDybdeBetingelse
   expression: |
     Den vejledende dybde skal være angivet hvis alle følgende betingelser er sande:
@@ -19,6 +22,7 @@
     Jeg læser det således, at elementet etableringstidspunkt skal være til stede, men ikke må være nil.
 
 - feature_type: Elledning
+  code: Elle04
   name: vejledendeDybdeVoidrestriktion
   expression: |
     Den vejledende dybde må ikke være void hvis alle følgende betingelser er sande:

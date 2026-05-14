@@ -1,4 +1,5 @@
 - feature_type: Føringsrør
+  code: Foer01
   name: geometriVertikaleKoordinaterRestriktion
   expression: |
     En vertikal koordinat i geometrien må ikke være ukendt-værdien på -99 hvis alle følgende betingelser er sande:
@@ -9,6 +10,7 @@
     - den primære forsyningsart er ikke telekommunikation
 
 - feature_type: Føringsrør
+  code: Foer02
   name: vejledendeDybdeBetingelse
   expression: |
     Den vejledende dybde skal være angivet hvis alle følgende betingelser er sande:
@@ -17,6 +19,7 @@
     - den primære forsyningsart er el eller telekommunikation
 
 - feature_type: Føringsrør
+  code: Foer03
   name: vejledendeDybdeVoidrestriktion
   expression: |
     Den vejledende dybde må ikke være void hvis alle følgende betingelser er sande:

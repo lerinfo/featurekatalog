@@ -1,14 +1,17 @@
 - feature_type: Ledning
+  code: Ledn01
   name: driftsstatusVoidrestriktion
   expression: |
     Driftsstatussen må ikke være void hvis etableringstidspunktet er efter skæringsdatoen.
 
 - feature_type: Ledning
+  code: Ledn02
   name: fareklasseVoidrestriktion
   expression: |
     Fareklassen må ikke være void hvis etableringstidspunktet er efter skæringsdatoen.
 
 - feature_type: Ledning
+  code: Ledn03
   name: geometriBetingelse
   expression: |
     Geometrien skal være angivet hvis alle følgende betingelser er sande:
@@ -16,6 +19,7 @@
     - ledningen er ikke indeholdt i en anden ledning
 
 - feature_type: Ledning
+  code: Ledn04
   name: geometriDatatypeRestriktion
   expression: |
     Geometrien skal anvende lineær interpolation.
@@ -25,18 +29,21 @@
     - gml:Curve med segmenter af typen gml:LineStringSegment
 
 - feature_type: Ledning
+  code: Ledn05
   name: nøjagtighedsklasseBetingelse
   expression: |
     Nøjagtighedsklassen for den horisontale placering skal være angivet hvis geometrien er angivet.
     Nøjagtighedsklassen for den horisontale placering må ikke være angivet hvis geometrien ikke er angivet.
 
 - feature_type: Ledning
+  code: Ledn06
   name: nøjagtighedsklasseVertikalBetingelse
   expression: |
     Nøjagtighedsklassen for den vertikale placering skal være angivet hvis geometrien er angivet.
     Nøjagtighedsklassen for den vertikale placering må ikke være angivet hvis geometrien ikke er angivet.
 
 - feature_type: Ledning
+  code: Ledn07
   name: nøjagtighedsklasseVertikalVoidrestriktion
   expression: |
     Nøjagtighedsklassen for den vertikale placering må ikke være void hvis alle følgende betingelser er sande:
@@ -44,6 +51,7 @@
     - ejerskabsforholdet er ejet af udleverende ledningsejer
 
 - feature_type: Ledning
+  code: Ledn08
   name: nøjagtighedsklasseVoidrestriktion
   expression: |
     Nøjagtighedsklassen for den horisontale placering må ikke være void hvis alle følgende betingelser er sande:
@@ -51,12 +59,14 @@
     - ejerskabsforholdet er ejet af udleverende ledningsejer
 
 - feature_type: Ledning
+  code: Ledn09
   name: udvendigDiameterMåleenhedsrestriktion
   expression: |
     Måleenheden for den udvendige diameter skal være millimeter.
     Millimeter skal angives med symbolet mm [UCUM].
 
 - feature_type: Ledning
+  code: Ledn10
   name: udvendigDiameterVoidrestriktion
   expression: |
     Den udvendige diameter må ikke være void hvis alle følgende betingelser er sande:
