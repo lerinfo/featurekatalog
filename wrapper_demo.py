@@ -8,6 +8,9 @@ from wrapper import SchemaEx
 
 
 if __name__ == "__main__":
+    '''
+    A simple demo and test of the SchemaEx class from wrapper.py 
+    '''
     schex: SchemaEx = SchemaEx('schemas/2.2_ler.xsd')
 
     console = Console()
