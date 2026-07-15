@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Type Tree – Kavaler{% endblock %}
+{% block content %}
+<h1>Type Tree</h1>
+<p>schema.url: {{ schex.schema.url }}</p>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-top">
+  <tr><th>name</th><th>type</th><th>abstract</th><th>typechain</th></tr>
+  {% for depth, xsdtype in absgmltype_tree %}
+  <tr>
+    <td class="font-monospace" style="padding-left: {{ 12 + depth * 24 }}px;">{{ xsdtype.prefixed_name }}</td>
+    <td class="font-monospace">{{ xsdtype.__class__.__name__ }}</td>
+    <td>{{ 'abstract' if xsdtype.abstract else '' }}</td>
+    <td><a href="{{ url_for('typechain_detail', slug=xsdtype.prefixed_name | anchor) }}">typechain</a></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

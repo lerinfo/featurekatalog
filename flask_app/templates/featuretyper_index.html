@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Featuretyper – Kavaler{% endblock %}
+{% block content %}
+<h1>Featuretyper</h1>
+<p>Én række pr. featuretype fra featurekatalogen. Klik for at se restriktioner/attributter (fra docx)
+eller XSD-strukturen (element/type) for den enkelte type.</p>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-top">
+  <tr><th>Navn</th><th>Foretrukken term</th><th>Featurekatalog (docx)</th><th>XSD type</th><th>abstract</th><th>XSD struktur</th></tr>
+  {% for pakke, typer in grupper %}
+  <tr class="table-secondary"><td colspan="6"><strong>{{ pakke }}</strong></td></tr>
+  {% for ft in typer %}
+  <tr>
+    <td>{{ ft.navn }}</td>
+    <td>{{ ft['Foretrukken term'] }}</td>
+    <td><a href="{{ url_for('featuretype', navn=ft.navn) }}">detaljer</a></td>
+    {% if ft.xsd_elm %}
+    <td class="font-monospace">{{ ft.xsd_elm.type.prefixed_name }}</td>
+    <td>{{ 'abstract' if ft.xsd_elm.type.abstract else '' }}</td>
+    <td><a href="{{ url_for('element_detail', slug=ft.xsd_elm.prefixed_name | anchor) }}">element</a> / <a href="{{ url_for('typechain_detail', slug=ft.xsd_elm.type.prefixed_name | anchor) }}">type</a></td>
+    {% else %}
+    <td colspan="3" class="text-muted">intet XSD-element</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

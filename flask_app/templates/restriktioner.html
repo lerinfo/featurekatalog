@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Restriktioner – Kavaler{% endblock %}
+{% block content %}
+<h1>Restriktioner</h1>
+<p>{{ restriktioner | length }} unikke navn+udtryk-grupper. Når et navn har flere grupper, betyder
+det at udtrykket ikke er ens for alle featuretyper der bruger navnet.</p>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-top">
+  <tr><th>Navn</th><th>Featuretyper</th><th>Udtryk</th></tr>
+  {% for r in restriktioner %}
+  <tr>
+    <td><code>{{ r.Navn }}</code></td>
+    <td>{% for t in r.Featuretyper %}<a href="{{ url_for('featuretype', navn=t) }}">{{ t }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
+    <td>{{ r.Udtryk }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

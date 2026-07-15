@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Kavaler{% endblock %}
+{% block content %}
+<h1>Kavaler</h1>
+<p class="lead">Som i kava + LER!</p>
+<p>
+Et lille værktøj der genererer dokumentation for LER-modellen (Featurekatalog), så man kan slå op
+hvad der er tilladt, i stedet for at læse XSD'en eller featurekatalog-docx'en direkte.
+</p>
+<p>
+<em>Version 1 — Flask + Frozen-Flask, Bootstrap. Erstatter (på sigt) mkdocs-udgaven. Kun featurekatalog-data
+(featuretyper, attributter, restriktioner) er portet indtil videre — Elements/Type Tree/Type Chains fra XSD
+mangler stadig.</em>
+</p>
+<ul>
+  <li><a href="{{ url_for('featuretyper_index') }}">Featuretyper</a> — alle 30 featuretyper med attributter, associationsroller og restriktioner</li>
+  <li><a href="{{ url_for('restriktioner') }}">Restriktioner</a> — alle restriktioner på tværs af featuretyper, grupperet</li>
+</ul>
+{% endblock %}

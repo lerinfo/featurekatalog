@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}General constraints – Kavaler{% endblock %}
+{% block content %}
+<h1>General constraints</h1>
+<p>Udover XSD constraints og listen med constraints ("restriktioner") fra featurekatalog / XMI, så er der nogle få yderligere.</p>
+<p>Alle tre regler herunder kan faktisk også udtrykkes i schematron.</p>
+<p>Fejlkoderne har jeg kaldt: G1, G2, G3.</p>
+
+<h2 class="h4 mt-4">G1 - Alle geometrier skal angives i 3 dimensioner, dog kan der bruges -99 for Z</h2>
+<p>Jeg har ikke testet for nyligt, det bygger på min hukommelse.</p>
+<p>Nogle steder er det tilladt at sætte Z=-99.</p>
+<p>Men det er aldrig tilladt kun at opgive to tal per vertex, heller ikke hvis man sætter srsDimension=2.</p>
+
+<h2 class="h4 mt-4">G2 - Sæt srsDimension=3</h2>
+<p>Jeg har ikke testet, om LER-server rent faktisk kigge på det, og om det evt giver fejl.
+Men de sætter srsDimensions=3 og jeg har en meget svag erinding om, at den afviser, hvis man ikke sætter det.</p>
+<p>I alle deres eksempler har de eksplicit sat srsDimension=3.</p>
+<p>Kilde: <a href="https://ler.dk/Files/C0200_Vejledning_til_udfyldelse_af_GML_for_udveksling_af_ledningsoplysninger_v_1_23.pdf">C0200_Vejledning_til_udfyldelse_af_GML_for_udveksling_af_ledningsoplysninger_v_1_23.pdf</a></p>
+
+<h2 class="h4 mt-4">G3 - XML kommentarer ikke tilladt</h2>
+<p>Så vidt jeg husker, så returnerer LER-server en (ubehjælpelig) fejl, hvis det xml man sender indeholder xml kommentarer.</p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ elmdict.elm.prefixed_name }} – Kavaler{% endblock %}
+{% block content %}
+<h1>{{ elmdict.elm.prefixed_name }}</h1>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-top">
+  <tr><th>name</th><th>occurs</th><th>required</th><th>nillable</th></tr>
+  {% for subelm in elmdict.allowed_elms %}
+  <tr>
+    <td class="font-monospace">{{ subelm.prefixed_name }}</td>
+    <td>{{ subelm.occurs }}</td>
+    <td>{{ 'required' if subelm.occurs[0] > 0 else '' }}</td>
+    <td>{{ 'nillable' if subelm.nillable else '' }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
