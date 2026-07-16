@@ -11,7 +11,7 @@ from featurekatalog import all_restriktioner, parse_featurekatalog
 from wrapper import SchemaEx
 
 DOCX_PATH = Path(__file__).parent / 'ler_featurekatalog.docx'
-XSD_PATH = Path(__file__).parent.parent / 'schemas' / '2.2_ler.xsd'
+XSD_PATH = Path(__file__).parent / 'schemas' / '2.2_ler.xsd'
 GML_ABSTRACT_TYPE = '{http://www.opengis.net/gml/3.2}AbstractGMLType'
 
 # 2.2_ler.xsd imports both of these (LinearDimension, LinearAnnotation, TextAnnotation
