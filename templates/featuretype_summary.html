@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ ft.navn }} – Kavaler{% endblock %}
+{% block content %}
+<p class="text-muted pakke-badge">{{ ft.pakke }}</p>
+<h1>{{ ft.navn }}</h1>
+<p class="text-muted">
+Denne side samler et udpluk af de mest relevante oplysninger om featuretypen '{{ ft.navn }}'
+fra både featurekatalogets docx og XSD-skemaet. For alle detaljer, se kildesiderne under
+"Kilder" nedenfor.
+</p>
+
+<dl class="row">
+  <dt class="col-sm-2">Navn</dt>
+  <dd class="col-sm-10">{{ ft.navn }} <span class="text-muted small">(kilde: docx)</span></dd>
+  <dt class="col-sm-2">Foretrukken term</dt>
+  <dd class="col-sm-10">{{ ft['Foretrukken term'] }} <span class="text-muted small">(kilde: docx)</span></dd>
+  {% if ft.Definition %}
+  <dt class="col-sm-2">Definition</dt>
+  <dd class="col-sm-10">{{ ft.Definition }} <span class="text-muted small">(kilde: docx)</span></dd>
+  {% endif %}
+  {% if ft['Subtype af'] %}
+  <dt class="col-sm-2">Subtype af</dt>
+  <dd class="col-sm-10">{{ ft['Subtype af'] | linkify }} <span class="text-muted small">(kilde: docx)</span></dd>
+  {% endif %}
+  {% if xsd_elm %}
+  <dt class="col-sm-2">XSD element</dt>
+  <dd class="col-sm-10"><a class="font-monospace" href="{{ url_for('xsdelement_details', slug=xsd_elm.prefixed_name | anchor) }}">{{ xsd_elm.prefixed_name }}</a> <span class="text-muted small">(kilde: XSD)</span></dd>
+  <dt class="col-sm-2">XSD type</dt>
+  <dd class="col-sm-10"><a class="font-monospace" href="{{ url_for('xsdtype_details', slug=xsd_elm.type.prefixed_name | anchor) }}">{{ xsd_elm.type.prefixed_name }}</a> {% if xsd_elm.type.abstract %}<span class="text-muted">(abstract)</span> {% endif %}<span class="text-muted small">(kilde: XSD)</span></dd>
+  {% else %}
+  <dt class="col-sm-2">XSD</dt>
+  <dd class="col-sm-10 text-muted">intet XSD-element</dd>
+  {% endif %}
+</dl>
+
+<h2 class="h4 mt-4">Attributter, restriktioner og associationsroller</h2>
+<p>
+{{ ft.attributter | length }} attribut(ter), {{ ft.restriktioner | length }} restriktion(er),
+{{ ft.associationsroller | length }} associationsrolle(r) <span class="text-muted small">(kilde: docx)</span> — se
+<a href="{{ url_for('docx_details', navn=ft.navn) }}">docx-detaljesiden</a> for den fulde liste.
+</p>
+
+<h2 class="h4 mt-4">Kilder</h2>
+<ul>
+  <li><a href="{{ url_for('docx_details', navn=ft.navn) }}">docx</a> — attributter, restriktioner og associationsroller fra featurekatalogets docx</li>
+  {% if xsd_elm %}
+  <li><a href="{{ url_for('xsdelement_details', slug=xsd_elm.prefixed_name | anchor) }}">XSD element</a> — tilladte under-elementer</li>
+  <li><a href="{{ url_for('xsdtype_details', slug=xsd_elm.type.prefixed_name | anchor) }}">XSD type</a> — arvekæde</li>
+  {% endif %}
+</ul>
+{% endblock %}

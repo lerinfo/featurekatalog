@@ -11,7 +11,7 @@ eller XSD-strukturen (element/type) for den enkelte type.</p>
   <tr class="table-secondary"><td colspan="6"><strong>{{ pakke }}</strong></td></tr>
   {% for ft in typer %}
   <tr>
-    <td>{{ ft.navn }}</td>
+    <td><a href="{{ url_for('featuretype_summary', navn=ft.navn) }}">{{ ft.navn }}</a></td>
     <td>{{ ft['Foretrukken term'] }}</td>
     {% if ft.xsd_elm %}
     <td class="font-monospace small"><span class="text-body-tertiary">{{ ft.xsd_elm.prefixed_name.split(':')[0] }}:</span>{{ ft.xsd_elm.local_name }}</td>

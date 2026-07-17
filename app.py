@@ -211,6 +211,17 @@ def general_constraints():
     return render_template('general_constraints.html')
 
 
+## SUMMARY PAGE (cross-source overview of a single feature type)
+
+
+@app.route('/featuretype_summary/<navn>/')
+def featuretype_summary(navn):
+    ft = get_by_navn(navn)
+    if ft is None:
+        abort(404)
+    return render_template('featuretype_summary.html', ft=ft, xsd_elm=get_xsd_element_by_navn(navn))
+
+
 ## DETAILS PAGES (for individual feature types, xsd elemenets or xsd types)
 
 
@@ -243,6 +254,12 @@ def xsdtype_details(slug):
 
 
 freezer = Freezer(app)
+
+
+@freezer.register_generator
+def featuretype_summary_urls():
+    for ft in get_featuretyper():
+        yield 'featuretype_summary', {'navn': ft['navn']}
 
 
 @freezer.register_generator
