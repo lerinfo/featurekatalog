@@ -40,8 +40,6 @@ parsing af ovennævnte docx.
 
 ## Kør som standard Flask site
 
-For at bygge disse statiske sider.
-
 ```bash
 pip install -r requirements.txt
 python3 app.py
