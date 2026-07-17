@@ -176,14 +176,14 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/featuretyper/')
-def featuretyper_index():
+@app.route('/featuretype_list/')
+def featuretype_list():
     grupper = {}
     for ft in get_featuretyper():
         ft = dict(ft)
         ft['xsd_elm'] = get_xsd_element_by_navn(ft['navn'])
         grupper.setdefault(ft['pakke'], []).append(ft)
-    return render_template('featuretyper_index.html', grupper=grupper.items())
+    return render_template('featuretype_list.html', grupper=grupper.items())
 
 
 @app.route('/featuretyper/<navn>/')
@@ -207,9 +207,9 @@ def element_detail(slug):
     return render_template('element_detail.html', elmdict=elmdict)
 
 
-@app.route('/typetree/')
-def typetree():
-    return render_template('typetree.html', schex=get_schex(), absgmltype_tree=get_type_tree())
+@app.route('/featuretype_tree/')
+def featuretype_tree():
+    return render_template('featuretype_tree.html', schex=get_schex(), absgmltype_tree=get_type_tree())
 
 
 @app.route('/typechain/<slug>/')

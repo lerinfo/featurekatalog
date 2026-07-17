@@ -24,12 +24,12 @@
           <a class="nav-link" href="{{ url_for('index') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('typetree') }}">Type Tree</a>
+          <a class="nav-link" href="{{ url_for('featuretype_tree') }}">Type Tree</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Navngivne restriktioner fra featurekatalog</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ url_for('featuretyper_index') }}">Featuretyper</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('featuretype_list') }}">Featuretyper</a></li>
             <li><a class="dropdown-item" href="{{ url_for('restriktioner') }}">Alle Restriktioner</a></li>
           </ul>
         </li>
