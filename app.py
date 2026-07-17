@@ -30,7 +30,7 @@ def normalize_navn(navn):
     return navn.lower().replace('æ', 'ae').replace('ø', 'oe').replace('å', 'aa')
 
 app = Flask(__name__)
-app.config['FREEZER_DESTINATION'] = str(Path(__file__).parent / 'build')
+app.config['FREEZER_DESTINATION'] = str(Path(__file__).parent / 'docs')
 app.config['FREEZER_RELATIVE_URLS'] = True
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -251,6 +251,8 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == 'freeze':
         freezer.freeze()
+        # Stop GitHub Pages from running the output through Jekyll.
+        (Path(app.config['FREEZER_DESTINATION']) / '.nojekyll').touch()
         print(f'Frozen to {app.config["FREEZER_DESTINATION"]}')
     else:
         app.run(debug=True)

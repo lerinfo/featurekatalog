@@ -38,7 +38,7 @@ parsing af ovennævnte docx.
   Dimensions/Annotations-namespaces) for XSD-struktur (elementer, typehierarki).
 - `app.py` fletter de to og server dem som én sammenhængende Flask-app.
 
-## How to build
+## Kør som standard Flask site
 
 For at bygge disse statiske sider.
 
@@ -48,12 +48,16 @@ python3 app.py
 ```
 
 Kører en almindelig Flask dev-server med hot reload på http://127.0.0.1:5000/.
+Kun relevant under development.
 
-## Byg statisk site
+## Byg statiske sider og deploy til GitHub Pages
 
 ```bash
 python3 app.py freeze
+git add docs/
+git commit -m "Opdater site"
+git push
 ```
 
-Skriver statisk HTML til `build/` (via Frozen-Flask). Klar til at committes og
-hostes, fx via GitHub Pages.
+Skriver statisk HTML til `docs/` (via Frozen-Flask, inkl. en `.nojekyll`-fil så
+GitHub ikke forsøger at Jekyll-processere sitet).
