@@ -171,6 +171,9 @@ def linkify_filter(value):
     return escape(value)
 
 
+## OVERVIEW PAGES (list like)
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -186,12 +189,9 @@ def featuretype_list():
     return render_template('featuretype_list.html', grupper=grupper.items())
 
 
-@app.route('/featuretype/<navn>/')
-def featuretype(navn):
-    ft = get_by_navn(navn)
-    if ft is None:
-        abort(404)
-    return render_template('featuretype.html', ft=ft)
+@app.route('/featuretype_tree/')
+def featuretype_tree():
+    return render_template('featuretype_tree.html', schex=get_schex(), absgmltype_tree=get_type_tree())
 
 
 @app.route('/restriktioner/')
@@ -199,7 +199,26 @@ def restriktioner():
     return render_template('restriktioner.html', restriktioner=all_restriktioner(get_featuretyper()))
 
 
-@app.route('/element_details/<slug>/')
+@app.route('/general_constraints/')
+def general_constraints():
+    return render_template('general_constraints.html')
+
+
+## DETAILS PAGES (for individual feature types, xsd elemenets or xsd types)
+
+
+@app.route('/featuretype/<navn>/')
+def featuretype(navn):
+    '''
+    Presents most relevant details about a featuretype, from both XSD and docx sources
+    '''
+    ft = get_by_navn(navn)
+    if ft is None:
+        abort(404)
+    return render_template('featuretype.html', ft=ft)
+
+
+@app.route('/xsdelement_details/<slug>/')
 def element_detail(slug):
     elmdict = get_element_detail_by_slug(slug)
     if elmdict is None:
@@ -207,12 +226,7 @@ def element_detail(slug):
     return render_template('element_detail.html', elmdict=elmdict)
 
 
-@app.route('/featuretype_tree/')
-def featuretype_tree():
-    return render_template('featuretype_tree.html', schex=get_schex(), absgmltype_tree=get_type_tree())
-
-
-@app.route('/typechain/<slug>/')
+@app.route('/xsdtypechain/<slug>/')
 def typechain_detail(slug):
     result = get_chain_by_slug(slug)
     if result is None:
@@ -221,9 +235,7 @@ def typechain_detail(slug):
     return render_template('typechain_detail.html', xsdtype=xsdtype, chain=chain)
 
 
-@app.route('/general_constraints/')
-def general_constraints():
-    return render_template('general_constraints.html')
+## FREEZER (static site generation)
 
 
 freezer = Freezer(app)
