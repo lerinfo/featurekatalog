@@ -1,7 +1,6 @@
 from typing import Dict, List
 from collections.abc import Iterator
 
-from tabulate import tabulate
 from xmlschema.validators import XsdType, XsdComplexType, XsdGroup, XsdElement
 from xmlschema import XMLSchema
 
