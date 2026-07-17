@@ -43,13 +43,15 @@ sted i det underliggende skema; et build-time-tjek fejler højlydt, hvis det nog
 </p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
-  <tr><th>name</th><th>occurs</th><th>required</th><th>nillable</th></tr>
+  <tr><th>name</th><th>occurs</th><th>required</th><th>nillable</th><th>type / constraints</th><th>annotation</th></tr>
   {% for elm in own_elm_objs %}
   <tr>
     <td class="font-monospace">{{ elm.prefixed_name }}</td>
     <td>{{ elm.occurs }}</td>
     <td>{{ 'required' if elm.occurs[0] > 0 else '' }}</td>
     <td>{{ 'nillable' if elm.nillable else '' }}</td>
+    <td class="font-monospace small">{{ elm | describe_type }}</td>
+    <td>{{ elm.annotation or '' }}</td>
   </tr>
   {% endfor %}
 </table>

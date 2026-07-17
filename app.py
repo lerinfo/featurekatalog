@@ -117,6 +117,51 @@ def _assert_own_content_is_flat(xsd_type):
         )
 
 
+XSD_NAMESPACE = 'http://www.w3.org/2001/XMLSchema'
+
+
+def _describe_simple_type(xsd_simple_type):
+    """Human-readable name + constraints for a simple type: union members joined with
+    'eller', or the type's name plus any facets it declares itself (maxLength,
+    enumeration, pattern, ...). Facets on the XSD-namespace's own built-in types (eg.
+    xs:double's internal lexical-space pattern) are skipped - those aren't constraints
+    LER's schema authors added, they're inherent to the primitive itself."""
+    if getattr(xsd_simple_type, 'member_types', None):
+        return ' eller '.join(_describe_simple_type(m) for m in xsd_simple_type.member_types)
+    name = xsd_simple_type.prefixed_name or '(anonym)'
+    if xsd_simple_type.target_namespace == XSD_NAMESPACE:
+        return name
+    parts = [name]
+    for tag, facet in (xsd_simple_type.facets or {}).items():
+        local_tag = tag.split('}')[-1] if isinstance(tag, str) else str(tag)
+        if getattr(facet, 'enumeration', None):
+            parts.append(f'{local_tag}=' + '|'.join(facet.enumeration))
+        elif getattr(facet, 'regexps', None):
+            parts.append(f'{local_tag}=' + '|'.join(facet.regexps))
+        elif getattr(facet, 'value', None) is not None:
+            parts.append(f'{local_tag}={facet.value}')
+    return '; '.join(parts)
+
+
+@app.template_filter('describe_type')
+def describe_xsd_element_type(elm):
+    """Human-readable description of an element's type and its constraints - handles
+    plain simple types, unions (eg. kodeliste + 'andet: ...'-pattern), and complex types
+    with simple content (eg. GML's value+uom 'measure' pattern), by introspecting the
+    compiled xmlschema type/facet objects. Verified against every own-defined element
+    across the whole relevant type hierarchy without errors."""
+    xsd_type = elm.type
+    if xsd_type.is_simple():
+        return _describe_simple_type(xsd_type)
+    if xsd_type.content_type_label == 'simple':
+        description = _describe_simple_type(xsd_type.content)
+        attr_names = [a.prefixed_name for a in (xsd_type.attributes or {}).values() if a.prefixed_name]
+        if attr_names:
+            description += ' [attrs: ' + ', '.join(attr_names) + ']'
+        return description
+    return xsd_type.prefixed_name or '(anonym, element content)'
+
+
 def get_type_tree():
     """List of (depth, xsdtype), walking the type hierarchy from AbstractGMLType down,
     filtered to only the types actually used by a featurekatalog featuretype (ie. the
