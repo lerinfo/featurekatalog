@@ -87,17 +87,24 @@ def get_xsd_element_by_navn(navn):
 def get_type_tree():
     """List of (depth, xsdtype), walking the type hierarchy from AbstractGMLType down,
     filtered to only the types actually used by a featurekatalog featuretype (ie. the
-    same 30 featuretyper documented in the docx) - not the ~85 other XSD-only types
-    (kodelister, PropertyType wrappers, ...) that never appear in the docx."""
+    same 30 featuretyper documented in the docx) plus their ancestor types (eg.
+    AbstractGMLType/AbstractFeatureType themselves, which no element uses directly but
+    which every used type descends from) - not the ~85 other XSD-only types (kodelister,
+    PropertyType wrappers, ...) that never appear in the docx."""
     global _type_tree
     if _type_tree is None:
         schex = get_schex()
         absgmltype = schex.maps.types[GML_ABSTRACT_TYPE]
         known_types = {elm.type for elm in get_all_xsd_elements()}
+        relevant_types = known_types | {
+            ancestor
+            for known_type in known_types
+            for ancestor in schex.iter_type_ancestors(known_type)
+        }
         _type_tree = [
             (depth, xsdtype)
             for depth, xsdtype in schex.walk_type_hierarchy(absgmltype)
-            if xsdtype in known_types
+            if xsdtype in relevant_types
         ]
     return _type_tree
 
@@ -191,7 +198,7 @@ def featuretype_list():
 
 @app.route('/featuretype_tree/')
 def featuretype_tree():
-    return render_template('featuretype_tree.html', schex=get_schex(), absgmltype_tree=get_type_tree())
+    return render_template('featuretype_tree.html', absgmltype_tree=get_type_tree())
 
 
 @app.route('/restriktioner/')

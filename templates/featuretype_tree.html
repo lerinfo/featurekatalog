@@ -2,16 +2,34 @@
 {% block title %}Type Tree – Kavaler{% endblock %}
 {% block content %}
 <h1>Type Tree</h1>
-<p>schema.url: {{ schex.schema.url }}</p>
+<p class="text-muted">
+Data kommer fra XSD'en (via xmlschema's kompilerede model),
+ikke fra featurekatalogets docx.
+</p>
+<h2 class="h4 mt-4">Type-hierarki</h2>
+<p class="text-muted">
+Viser type-hierarkiet fra rodtypen <code>gml:AbstractGMLType</code> og ned gennem alle dens
+undertyper, indrykket efter arve-dybde, samt om hver type er abstrakt. Med er alle typer, der
+enten bruges direkte af mindst én featuretype, eller er en forfader til en type, der bruges
+(fx <code>gml:AbstractGMLType</code> og <code>gml:AbstractFeatureType</code> selv, som intet
+element bruger direkte, men som alle de øvrige typer nedarver fra). De øvrige ~85 XSD-typer i
+skemaet (kodelister, PropertyType-wrappers m.m.), der aldrig optræder i featurekatalogets docx,
+er filtreret fra. Arvekæden på de enkelte typers "details"-sider går opad og kan nøjes med
+SISSA's <code>xmlschema</code>-bibliotek direkte, som for hver type kender dens <code>base_type</code>.
+Dette hierarki går den modsatte vej, nedad fra forælder til undertyper — det kan <code>xmlschema</code>
+ikke selv slå op, så her bruger vi vores egen <code>SchemaEx</code>-wrapper (i <code>wrapper.py</code>),
+som ved opstart bygger et omvendt indeks over hele skemaet (forælder → liste af undertyper) og
+bruger det til at gå nedad i træet.
+</p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
-  <tr><th>name</th><th>type</th><th>abstract</th><th>typechain</th></tr>
+  <tr><th>name</th><th>type</th><th>abstract</th><th>details</th></tr>
   {% for depth, xsdtype in absgmltype_tree %}
   <tr>
-    <td class="font-monospace" style="padding-left: {{ 12 + depth * 24 }}px;">{{ xsdtype.prefixed_name }}</td>
+    <td class="font-monospace" style="padding-left: {{ 12 + depth * 48 }}px;">{{ xsdtype.prefixed_name }}</td>
     <td class="font-monospace">{{ xsdtype.__class__.__name__ }}</td>
     <td>{{ 'abstract' if xsdtype.abstract else '' }}</td>
-    <td><a href="{{ url_for('xsdtype_details', slug=xsdtype.prefixed_name | anchor) }}">typechain</a></td>
+    <td><a href="{{ url_for('xsdtype_details', slug=xsdtype.prefixed_name | anchor) }}">details</a></td>
   </tr>
   {% endfor %}
 </table>
