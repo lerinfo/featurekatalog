@@ -21,17 +21,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../featuretype_list/index.html">List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../typetree/index.html">Type Tree</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Navngivne restriktioner fra featurekatalog</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../featuretyper/index.html">Featuretyper</a></li>
-            <li><a class="dropdown-item" href="index.html">Alle Restriktioner</a></li>
-          </ul>
+          <a class="nav-link" href="../featuretype_tree/index.html">Tree</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../general_constraints/index.html">Andre krav</a>
@@ -49,55 +42,55 @@ det at udtrykket ikke er ens for alle featuretyper der bruger navnet.</p>
   <tr><th>Navn</th><th>Featuretyper</th><th>Udtryk</th></tr>
   <tr>
     <td><code>anborstedTilladelse</code></td>
-    <td><a href="../featuretyper/Vandkomponent/index.html">Vandkomponent</a></td>
+    <td><a href="../docx_details/Vandkomponent/index.html">Vandkomponent</a></td>
     <td>Anborstedet må kun være angivet hvis typen er tilslutningspunkt.</td>
   </tr>
   <tr>
     <td><code>breddeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Måleenheden for bredden skal være millimeter.
 Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>brøndformTilladelse</code></td>
-    <td><a href="../featuretyper/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
+    <td><a href="../docx_details/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
     <td>Brøndformen må kun være angivet hvis typen er brønd.</td>
   </tr>
   <tr>
     <td><code>bunddiameterbreddeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
+    <td><a href="../docx_details/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
     <td>Måleenheden for bunddiameterbredden skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>bundlængdeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
+    <td><a href="../docx_details/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
     <td>Måleenheden for bundlængden skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>bundlængdeTilladelse</code></td>
-    <td><a href="../featuretyper/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
+    <td><a href="../docx_details/Afl%C3%B8bskomponent/index.html">Afløbskomponent</a></td>
     <td>Bundlængden må kun være angivet hvis alle følgende betingelser er sande:
 * typen er brønd
 * brøndformkoden er kvadratisk eller rektangulær</td>
   </tr>
   <tr>
     <td><code>driftsstatusVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Driftsstatussen må ikke være void hvis etableringstidspunktet er efter skæringsdatoen.</td>
   </tr>
   <tr>
     <td><code>fareklasseRestriktion</code></td>
-    <td><a href="../featuretyper/Telekommunikationsledning/index.html">Telekommunikationsledning</a><br><a href="../featuretyper/Vandledning/index.html">Vandledning</a></td>
+    <td><a href="../docx_details/Telekommunikationsledning/index.html">Telekommunikationsledning</a><br><a href="../docx_details/Vandledning/index.html">Vandledning</a></td>
     <td>Fareklassen må ikke være meget farlig.</td>
   </tr>
   <tr>
     <td><code>fareklasseVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Fareklassen må ikke være void hvis  etableringstidspunktet er efter skæringsdatoen.</td>
   </tr>
   <tr>
     <td><code>formatRestriktion</code></td>
-    <td><a href="../featuretyper/Informationsressource/index.html">Informationsressource</a></td>
+    <td><a href="../docx_details/Informationsressource/index.html">Informationsressource</a></td>
     <td>Formatværdien skal være en af følgende: CSV, DGN, DOC, DOCX, DWF, DWG, DXF, IFC-SPF, IFC-XML, JPEG, PDF, SAT, SHP, SKP, TAB, TIFF, XLS, XLSX.
 Formattypen skal være text/csv hvis formatværdien er CSV.
 Formattypen skal være application/octet-stream hvis formatværdien er DGN.
@@ -126,32 +119,32 @@ Note 6: Ovenstående følger regler beskrevet i [RFC 2046] og [RFC 4288].</td>
   </tr>
   <tr>
     <td><code>forsyningsartRestriktion</code></td>
-    <td><a href="../featuretyper/AndenKomponent/index.html">AndenKomponent</a></td>
+    <td><a href="../docx_details/AndenKomponent/index.html">AndenKomponent</a></td>
     <td>Forsyningsarten må ikke være en af de prædefinerede værdier fra kodelisten Forsyningsart.
 Note: Hvis man har behov for at afgive oplysninger om en ledningskomponent som har en forsyningsart som er prædefineret i kodelisten Forsyningsart, så skal man i stedet for AndenKomponent bruge den subklasse af Ledningskomponent som hører til den forsyningsart. Fx Telekommunikationskomponent for forsyningsarten telekommunikation.</td>
   </tr>
   <tr>
     <td><code>forsyningsartRestriktion</code></td>
-    <td><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Forsyningsarten må ikke være en af de prædefinerede værdier fra kodelisten Forsyningsart.
 Note: Hvis man har behov for at afgive oplysninger om en ledning som har en forsyningsart som er prædefineret i kodelisten Forsyningsart, så skal man i stedet for AndenLedning bruge den subklasse af Ledning som hører til den forsyningsart. Fx Telekommunikationsledning for forsyningsarten telekommunikation.</td>
   </tr>
   <tr>
     <td><code>forventetAfleveringstidspunktBetingelse</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>Det forventede afleveringstidspunkt må ikke være angivet hvis typen af graveforespørgselssvaret ikke er &#34;udtaget til manuel behandling&#34;.
 Det forventede afleveringstidspunkt må godt være angivet hvis typen af graveforespørgselssvaret er &#34;udtaget til manuel behandling&#34;.</td>
   </tr>
   <tr>
     <td><code>geometriBetingelse</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Geometrien skal være angivet hvis alle følgende betingelser er sande:
 * ledningen er ikke indeholdt i et ledningstracé
 * ledningen er ikke indeholdt i en anden ledning</td>
   </tr>
   <tr>
     <td><code>geometriDatatyperestriktion</code></td>
-    <td><a href="../featuretyper/Informationsressource/index.html">Informationsressource</a><br><a href="../featuretyper/Ledningskomponent/index.html">Ledningskomponent</a></td>
+    <td><a href="../docx_details/Informationsressource/index.html">Informationsressource</a><br><a href="../docx_details/Ledningskomponent/index.html">Ledningskomponent</a></td>
     <td>Geometrien skal have en af følgende typer: GM_Point, GM_MultiPoint, GM_Curve, GM_MultiCurve, GM_Surface eller GM_MultiSurface.
 Geometrien skal anvende lineær interpolation hvis dens type er GM_Curve eller GM_MultiCurve.
 Note: I en GML-indkodning betyder det, at geometritypen skal være en af følgende [GML SF]:
@@ -169,7 +162,7 @@ Note: I en GML-indkodning betyder det, at en grænse af en flade eller en multif
   </tr>
   <tr>
     <td><code>geometriDatatyperestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Geometrien skal anvende lineær interpolation.
 Note: I en GML-indkodning betyder det, at geometrien, som er en kurve, skal have en geometritype der er en af følgende [GML SF]:
 * gml:LineString
@@ -177,7 +170,7 @@ Note: I en GML-indkodning betyder det, at geometrien, som er en kurve, skal have
   </tr>
   <tr>
     <td><code>geometriDatatyperestriktion</code></td>
-    <td><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Geometrien skal anvende lineær interpolation.
 Note: I en GML-indkodning betyder det, at geometrien, som er en multikurve, skal består af segmenter som skal have en geometritype der er en af følgende [GML SF]:
 * gml:LineString
@@ -185,7 +178,7 @@ Note: I en GML-indkodning betyder det, at geometrien, som er en multikurve, skal
   </tr>
   <tr>
     <td><code>geometriVertikaleKoordinaterRestriktion</code></td>
-    <td><a href="../featuretyper/Afl%C3%B8bsledning/index.html">Afløbsledning</a><br><a href="../featuretyper/TermiskLedning/index.html">TermiskLedning</a><br><a href="../featuretyper/Gasledning/index.html">Gasledning</a><br><a href="../featuretyper/Olieledning/index.html">Olieledning</a><br><a href="../featuretyper/Vandledning/index.html">Vandledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/Afl%C3%B8bsledning/index.html">Afløbsledning</a><br><a href="../docx_details/TermiskLedning/index.html">TermiskLedning</a><br><a href="../docx_details/Gasledning/index.html">Gasledning</a><br><a href="../docx_details/Olieledning/index.html">Olieledning</a><br><a href="../docx_details/Vandledning/index.html">Vandledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>En vertikal koordinat i geometrien må ikke være ukendt-værdien på -99 hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -193,7 +186,7 @@ Note: I en GML-indkodning betyder det, at geometrien, som er en multikurve, skal
   </tr>
   <tr>
     <td><code>geometriVertikaleKoordinaterRestriktion</code></td>
-    <td><a href="../featuretyper/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a></td>
+    <td><a href="../docx_details/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a></td>
     <td>En vertikal koordinat i geometrien må ikke være ukendt-værdien på -99 hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -203,7 +196,7 @@ Note: I en GML-indkodning betyder det, at geometrien, som er en multikurve, skal
   </tr>
   <tr>
     <td><code>geometryDataTypeConstraint</code></td>
-    <td><a href="../featuretyper/LinearDimension/index.html">LinearDimension</a></td>
+    <td><a href="../docx_details/LinearDimension/index.html">LinearDimension</a></td>
     <td>The dimension line shall use linear interpolation.
 Note: In a GML encoding, this means that these geometries, which are curves, must have a geometry type that is one of the following [GML SF]:
 * gml:LineString
@@ -211,7 +204,7 @@ Note: In a GML encoding, this means that these geometries, which are curves, mus
   </tr>
   <tr>
     <td><code>geometryDataTypeConstraint</code></td>
-    <td><a href="../featuretyper/LinearAnnotation/index.html">LinearAnnotation</a></td>
+    <td><a href="../docx_details/LinearAnnotation/index.html">LinearAnnotation</a></td>
     <td>The geometry shall use linear interpolation.
 Note: In a GML encoding, this means that the geometry, which is a curve, must have a geometry type that is one of the following [GML SF]:
 * gml:LineString
@@ -219,13 +212,13 @@ Note: In a GML encoding, this means that the geometry, which is a curve, must ha
   </tr>
   <tr>
     <td><code>idRestriktion</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>id&#39;et skal være en UUID, som defineret i [ITU-T X.667].
 Note: Bemærk, at en anbefaling i [ITU-T X.667] er følgende: &#34;It is recommended that the hexadecimal representation used in all human-readable formats be restricted to lower-case letters. Software processing this representation is, however, required to accept both upper and lower case letters&#34;.</td>
   </tr>
   <tr>
     <td><code>indholdGM_ObjectSRIDrestriktion</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>En featuretype indeholdt i et graveforespørgselssvar skal anvende det sammensatte koordinatreferencesystem med URI http://www.opengis.net/def/crs/EPSG/0/7416 som koordinatreferencesystemet for attributter der har GM_Object eller en af dets subtyper som typer.
 Note 1: Koordinatreferencesystemet med URI http://www.opengis.net/def/crs/EPSG/0/7416 har som navn &#34;ETRS89 / UTM zone 32N + DVR90 height&#34;.
 Note 2: GM_Object har bl.a. GM_Point, GM_Curve og GM_MultiCurve som subtyper, se også ISO 19107.
@@ -233,7 +226,7 @@ Note 3: Det betyder, at fx Ledning.geometri og LinearDimension.dimensionLine ska
   </tr>
   <tr>
     <td><code>indholdKoteSRIDrestriktion</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>En featuretype indeholdt i et graveforespørgselssvar skal anvende det vertikale koordinatreferencesystemet med URI http://www.opengis.net/def/crs/EPSG/0/5799 som koordinatreferencesystemet for attributter der repræsenterer en kote.
 Note 1: Koordinatreferencesystemet med URI http://www.opengis.net/def/crs/EPSG/0/5799 har som navn &#34;DVR90 height&#34;.
 Note 2: En attribut der repræsenterer en kote har DirectPosition som type.
@@ -242,103 +235,103 @@ Note 4: Ukendte vertikale koordinater angives vha. ukendt-værdien på -99. Bem�
   </tr>
   <tr>
     <td><code>indholdNilReasonRestriktion</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>En egenskab af en featuretype indeholdt i graveforespørgselssvaret, indkodet som GML, skal have &#34;unknown&#34; som værdi for XML-attributten med navn &#34;nilReason&#34; hvis egenskaben er void og XML-attributten med navn &#34;nilReason&#34; er angivet.
 En egenskab af en featuretype indeholdt i graveforespørgselssvaret, indkodet som GML, behøver ikke at have en XML-attribut med navn &#34;nilReason&#34; hvis egenskaben er void.
 Note: Det betyder, at fx &lt;ler:udvendigDiameter xsi:nil=&#34;true&#34; nilReason=&#34;withheld&#34; /&gt; ikke er tilladt.</td>
   </tr>
   <tr>
     <td><code>mailadresseBetingelse</code></td>
-    <td><a href="../featuretyper/Kontaktprofil/index.html">Kontaktprofil</a></td>
+    <td><a href="../docx_details/Kontaktprofil/index.html">Kontaktprofil</a></td>
     <td>Mailadressen skal være angivet hvis ikke telefonnummeret er angivet.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseBetingelse</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Nøjagtighedsklassen for den horisontale placering skal være angivet hvis geometrien er angivet.
 Nøjagtighedsklassen for den horisontale placering må ikke være angivet hvis geometrien ikke er angivet.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseBetingelse</code></td>
-    <td><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Nøjagtighedsklassen for den horisontale placering skal være angivet.
 Note: Denne restriktion er nødvendig, da attribut &#34;nøjagtighedsklasse&#34; er defineret på LedningEllerLedningstrace med multiplicitet 0..1.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseVertikalBetingelse</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Nøjagtighedsklassen for den vertikale placering skal være angivet hvis geometrien er angivet.
 Nøjagtighedsklassen for den vertikale placering må ikke være angivet hvis geometrien ikke er angivet.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseVertikalBetingelse</code></td>
-    <td><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Nøjagtighedsklassen for den vertikale placering skal være angivet.
 Note: Denne restriktion er nødvendig, da attribut &#34;nøjagtighedsklasseVertikal&#34; er defineret på LedningEllerLedningstrace med multiplicitet 0..1.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseVertikalVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a><br><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a><br><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Nøjagtighedsklassen for den vertikale placering må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer.</td>
   </tr>
   <tr>
     <td><code>nøjagtighedsklasseVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a><br><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a><br><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Nøjagtighedsklassen for den horisontale placering må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer.</td>
   </tr>
   <tr>
     <td><code>relativNiveauTilladelse</code></td>
-    <td><a href="../featuretyper/Elkomponent/index.html">Elkomponent</a></td>
+    <td><a href="../docx_details/Elkomponent/index.html">Elkomponent</a></td>
     <td>Det relative niveau må kun være angivet hvis typen er rørblok.</td>
   </tr>
   <tr>
     <td><code>spændingsniveauMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/Elkomponent/index.html">Elkomponent</a><br><a href="../featuretyper/Elledning/index.html">Elledning</a></td>
+    <td><a href="../docx_details/Elkomponent/index.html">Elkomponent</a><br><a href="../docx_details/Elledning/index.html">Elledning</a></td>
     <td>Måleenheden for spændingsniveauet skal være kilovolt. Kilovolt skal angives med symbolet kV [UCUM].</td>
   </tr>
   <tr>
     <td><code>stiRestriktion</code></td>
-    <td><a href="../featuretyper/Informationsressource/index.html">Informationsressource</a></td>
+    <td><a href="../docx_details/Informationsressource/index.html">Informationsressource</a></td>
     <td>Stien skal være en relativ sti.</td>
   </tr>
   <tr>
     <td><code>stutskoteTilladelse</code></td>
-    <td><a href="../featuretyper/Vandkomponent/index.html">Vandkomponent</a></td>
+    <td><a href="../docx_details/Vandkomponent/index.html">Vandkomponent</a></td>
     <td>Stutskoten må kun være angivet hvis typen er en af følgende: tapsted, ventil.</td>
   </tr>
   <tr>
     <td><code>tapstedstypeTilladelse</code></td>
-    <td><a href="../featuretyper/Vandkomponent/index.html">Vandkomponent</a></td>
+    <td><a href="../docx_details/Vandkomponent/index.html">Vandkomponent</a></td>
     <td>Tapstedstypen må kun være angivet hvis typen er tapsted.</td>
   </tr>
   <tr>
     <td><code>telefonnummerBetingelse</code></td>
-    <td><a href="../featuretyper/Kontaktprofil/index.html">Kontaktprofil</a></td>
+    <td><a href="../docx_details/Kontaktprofil/index.html">Kontaktprofil</a></td>
     <td>Telefonnummeret skal være angivet hvis ikke mailadressen er angivet.</td>
   </tr>
   <tr>
     <td><code>temperaturMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/TermiskLedning/index.html">TermiskLedning</a></td>
+    <td><a href="../docx_details/TermiskLedning/index.html">TermiskLedning</a></td>
     <td>Måleenheden for temperaturen skal være grader celsius. Grader celsius skal angives med symbolet Cel [UCUM].</td>
   </tr>
   <tr>
     <td><code>trykMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/TermiskLedning/index.html">TermiskLedning</a><br><a href="../featuretyper/Gasledning/index.html">Gasledning</a><br><a href="../featuretyper/Olieledning/index.html">Olieledning</a></td>
+    <td><a href="../docx_details/TermiskLedning/index.html">TermiskLedning</a><br><a href="../docx_details/Gasledning/index.html">Gasledning</a><br><a href="../docx_details/Olieledning/index.html">Olieledning</a></td>
     <td>Måleenheden for trykket skal være bar. Bar skal angives med symbolet bar [UCUM].</td>
   </tr>
   <tr>
     <td><code>typeSupplerendeInfoBetingelse</code></td>
-    <td><a href="../featuretyper/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
+    <td><a href="../docx_details/Graveforesp%C3%B8rgselssvar/index.html">Graveforespørgselssvar</a></td>
     <td>Supplerende information om graveforespørgsselsvaret skal være angivet hvis typen af graveforespørgsselsvaret er &#34;ledningsoplysninger udleveres ikke&#34;.
 Supplerende information om graveforespørgsselsvaret må godt være angivet hvis typen af graveforespørgsselsvaret ikke er &#34;ledningsoplysninger udleveres ikke&#34;.</td>
   </tr>
   <tr>
     <td><code>udvendigBreddeBetingelse</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Den udvendige bredde skal være angivet hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * tværsnitsformen er ikke cirkulær.
@@ -346,12 +339,12 @@ Den udvendige bredde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>udvendigBreddeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Måleenheden for den udvendige bredde skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>udvendigBreddeVoidrestriktion</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Den udvendige bredde må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -359,7 +352,7 @@ Den udvendige bredde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>udvendigDiameterBetingelse</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Den udvendige diameter skal være angivet hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * tværsnitsformen er cirkulær.
@@ -367,22 +360,22 @@ Den udvendige diameter må ikke være angivet hvis tværsnitsformen ikke er cirk
   </tr>
   <tr>
     <td><code>udvendigDiameterBetingelse</code></td>
-    <td><a href="../featuretyper/Elledning/index.html">Elledning</a></td>
+    <td><a href="../docx_details/Elledning/index.html">Elledning</a></td>
     <td>Den udvendige diameter skal være angivet hvis etableringstidspunktet er efter skæringsdatoen.</td>
   </tr>
   <tr>
     <td><code>udvendigDiameterBetingelse</code></td>
-    <td><a href="../featuretyper/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
+    <td><a href="../docx_details/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
     <td>Den udvendige diameter skal være angivet hvis  etableringstidspunktet er efter skæringsdatoen.</td>
   </tr>
   <tr>
     <td><code>udvendigDiameterMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Måleenheden for den udvendige diameter skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>udvendigDiameterVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Ledning/index.html">Ledning</a></td>
+    <td><a href="../docx_details/Ledning/index.html">Ledning</a></td>
     <td>Den udvendige diameter må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -390,7 +383,7 @@ Den udvendige diameter må ikke være angivet hvis tværsnitsformen ikke er cirk
   </tr>
   <tr>
     <td><code>udvendigHøjdeBetingelse</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Den udvendige højde skal være angivet hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * tværsnitsformen er ikke cirkulær.
@@ -398,12 +391,12 @@ Den udvendige højde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>udvendigHøjdeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Måleenheden for den udvendige højde skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>udvendigHøjdeVoidrestriktion</code></td>
-    <td><a href="../featuretyper/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../featuretyper/AndenLedning/index.html">AndenLedning</a></td>
+    <td><a href="../docx_details/R%C3%B8rledning/index.html">Rørledning</a><br><a href="../docx_details/AndenLedning/index.html">AndenLedning</a></td>
     <td>Den udvendige højde må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -411,7 +404,7 @@ Den udvendige højde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>vejledendeDybdeBetingelse</code></td>
-    <td><a href="../featuretyper/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a><br><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a><br><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Den vejledende dybde skal være angivet hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * de vertikale koordinater i geometrien er ukendt-værdien på -99;
@@ -419,19 +412,19 @@ Den udvendige højde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>vejledendeDybdeBetingelse</code></td>
-    <td><a href="../featuretyper/Elledning/index.html">Elledning</a><br><a href="../featuretyper/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
+    <td><a href="../docx_details/Elledning/index.html">Elledning</a><br><a href="../docx_details/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
     <td>Den vejledende dybde skal være angivet hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * de vertikale koordinater i geometrien er ukendt-værdien på -99.</td>
   </tr>
   <tr>
     <td><code>vejledendeDybdeMåleenhedsrestriktion</code></td>
-    <td><a href="../featuretyper/LedningEllerLedningstrace/index.html">LedningEllerLedningstrace</a><br><a href="../featuretyper/Ledningskomponent/index.html">Ledningskomponent</a></td>
+    <td><a href="../docx_details/LedningEllerLedningstrace/index.html">LedningEllerLedningstrace</a><br><a href="../docx_details/Ledningskomponent/index.html">Ledningskomponent</a></td>
     <td>Måleenheden for den vejledende dybde i forhold til terræn ved etablering skal være millimeter. Millimeter skal angives med symbolet mm [UCUM].</td>
   </tr>
   <tr>
     <td><code>vejledendeDybdeVoidrestriktion</code></td>
-    <td><a href="../featuretyper/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a><br><a href="../featuretyper/Ledningstrace/index.html">Ledningstrace</a></td>
+    <td><a href="../docx_details/F%C3%B8ringsr%C3%B8r/index.html">Føringsrør</a><br><a href="../docx_details/Ledningstrace/index.html">Ledningstrace</a></td>
     <td>Den vejledende dybde må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
@@ -441,7 +434,7 @@ Den udvendige højde må ikke være angivet hvis tværsnitsformen er cirkulær.<
   </tr>
   <tr>
     <td><code>vejledendeDybdeVoidrestriktion</code></td>
-    <td><a href="../featuretyper/Elledning/index.html">Elledning</a><br><a href="../featuretyper/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
+    <td><a href="../docx_details/Elledning/index.html">Elledning</a><br><a href="../docx_details/Telekommunikationsledning/index.html">Telekommunikationsledning</a></td>
     <td>Den vejledende dybde må ikke være void hvis alle følgende betingelser er sande:
 * etableringstidspunktet er efter skæringsdatoen;
 * ejerskabsforholdet er ejet af udleverende ledningsejer;
