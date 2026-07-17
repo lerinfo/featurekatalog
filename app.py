@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 from xmlschema import XMLSchema
+from xmlschema.validators.wildcards import XsdAnyElement, XsdAnyAttribute
 from flask import Flask, abort, current_app, render_template
 from flask_frozen import Freezer
 from markupsafe import Markup, escape
@@ -117,6 +118,97 @@ def _assert_own_content_is_flat(xsd_type):
         )
 
 
+def _assert_derivation_is_extension_or_root(xsd_type):
+    """_own_content_group() only knows how to isolate 'this type's own elements' for two
+    cases: derivation='extension' (own = content[-1]) or a root type with no base
+    (derivation=None, own = the whole content). It has never been tested against
+    derivation='restriction' (verified: 0 of the 31 relevant types currently use it -
+    all are 'extension' or root). Restriction narrows a base's content rather than
+    adding to it, so content[-1] would not mean 'own elements' for such a type - the
+    whole 'defineret direkte'/'defining type' analysis would silently mislabel it.
+    Fail loudly at build time instead."""
+    if xsd_type.derivation not in ('extension', None):
+        raise RuntimeError(
+            f"{xsd_type.prefixed_name} has derivation={xsd_type.derivation!r} - "
+            "_own_content_group() only handles 'extension' and root types. The "
+            "'own elements' logic needs to be redesigned for restriction before the "
+            "site can be rebuilt."
+        )
+
+
+def _assert_not_mixed_content(xsd_type):
+    """The element tables (xsdelement_details.html, xsdtype_details.html) list only
+    structured child elements - they say nothing about free text. If a type has
+    mixed="true" content, arbitrary text can appear between/around those elements too,
+    which none of the tables would mention (verified: 0 of the 31 relevant types are
+    mixed). Fail loudly at build time instead of silently omitting that."""
+    if getattr(xsd_type, 'mixed', False):
+        raise RuntimeError(
+            f'{xsd_type.prefixed_name} has mixed content (mixed="true") - the element '
+            "tables don't account for interspersed free text. This needs to be shown "
+            "somehow before the site can be rebuilt."
+        )
+
+
+def _has_wildcard(group):
+    """True if an xs:any wildcard particle appears anywhere in group, at any nesting depth."""
+    for item in group:
+        if hasattr(item, 'model'):
+            if _has_wildcard(item):
+                return True
+        elif isinstance(item, XsdAnyElement):
+            return True
+    return False
+
+
+def _assert_no_wildcards(xsd_type):
+    """The element/attribute tables list only named, declared elements and attributes -
+    an xs:any or xs:anyAttribute wildcard would mean 'and also anything else from
+    [namespace] is allowed here', which none of the tables mention (verified: 0 of the
+    31 relevant types have either). Worse than a display gap: xmlschema's
+    content.iter_elements() does NOT filter out xs:any particles (confirmed by testing),
+    so an XsdAnyElement would flow straight into describe_xsd_element_type() and the
+    templates' elm.prefixed_name/elm.occurs accesses, which are written assuming a real
+    XsdElement - likely to raise, not just mislead. Fail loudly and clearly here
+    instead of an obscure AttributeError deep in template rendering."""
+    own = _own_content_group(xsd_type)
+    if own is not None and _has_wildcard(own):
+        raise RuntimeError(
+            f"{xsd_type.prefixed_name}'s own content contains an xs:any wildcard - the "
+            "element tables assume real XsdElements (elm.prefixed_name, elm.occurs, ...) "
+            "and don't handle XsdAnyElement. This needs to be redesigned before the site "
+            "can be rebuilt."
+        )
+    if xsd_type.is_complex() and xsd_type.attributes is not None:
+        if any(isinstance(v, XsdAnyAttribute) for v in xsd_type.attributes.values()):
+            raise RuntimeError(
+                f"{xsd_type.prefixed_name} has an xs:anyAttribute wildcard - the "
+                "'[attrs: ...]' listing in describe_xsd_element_type() only handles "
+                "named attributes. This needs to be shown somehow before the site can "
+                "be rebuilt."
+            )
+
+
+def _assert_no_abstract_elements(xsd_type):
+    """An element declared abstract="true" can never literally appear in an XML
+    instance - only substitutes (via substitutionGroup) can. If the own-elements tables
+    ever list an abstract element as a normal required/optional entry, that's actively
+    misleading (verified: 0 of the 31 relevant types have one in their own content).
+    Fail loudly rather than silently show it as if it were directly usable."""
+    own = _own_content_group(xsd_type)
+    if own is None:
+        return
+    for elm in own.iter_elements():
+        if getattr(elm, 'abstract', False):
+            raise RuntimeError(
+                f"{xsd_type.prefixed_name} has an abstract element ({elm.prefixed_name}) "
+                "in its own content - the element tables show it as a normal entry, "
+                "which is misleading since it can never appear directly, only via "
+                "substitutionGroup members. This needs to be shown somehow before the "
+                "site can be rebuilt."
+            )
+
+
 XSD_NAMESPACE = 'http://www.w3.org/2001/XMLSchema'
 
 
@@ -186,6 +278,10 @@ def get_type_tree():
         ]
         for _depth, xsdtype in _type_tree:
             _assert_own_content_is_flat(xsdtype)
+            _assert_derivation_is_extension_or_root(xsdtype)
+            _assert_not_mixed_content(xsdtype)
+            _assert_no_wildcards(xsdtype)
+            _assert_no_abstract_elements(xsdtype)
     return _type_tree
 
 
