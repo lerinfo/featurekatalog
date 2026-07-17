@@ -223,16 +223,16 @@ def element_detail(slug):
     elmdict = get_element_detail_by_slug(slug)
     if elmdict is None:
         abort(404)
-    return render_template('element_detail.html', elmdict=elmdict)
+    return render_template('xsdelement_details.html', elmdict=elmdict)
 
 
-@app.route('/xsdtypechain/<slug>/')
-def typechain_detail(slug):
+@app.route('/xsdtype_details/<slug>/')
+def xsdtype_details(slug):
     result = get_chain_by_slug(slug)
     if result is None:
         abort(404)
     xsdtype, chain = result
-    return render_template('typechain_detail.html', xsdtype=xsdtype, chain=chain)
+    return render_template('xsdtype_details.html', xsdtype=xsdtype, chain=chain)
 
 
 ## FREEZER (static site generation)
@@ -254,9 +254,9 @@ def element_detail_urls():
 
 
 @freezer.register_generator
-def typechain_detail_urls():
+def xsdtype_details_urls():
     for xsdtype, _chain in get_chains():
-        yield 'typechain_detail', {'slug': anchor_filter(xsdtype.prefixed_name)}
+        yield 'xsdtype_details', {'slug': anchor_filter(xsdtype.prefixed_name)}
 
 
 if __name__ == '__main__':

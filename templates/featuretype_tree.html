@@ -11,7 +11,7 @@
     <td class="font-monospace" style="padding-left: {{ 12 + depth * 24 }}px;">{{ xsdtype.prefixed_name }}</td>
     <td class="font-monospace">{{ xsdtype.__class__.__name__ }}</td>
     <td>{{ 'abstract' if xsdtype.abstract else '' }}</td>
-    <td><a href="{{ url_for('typechain_detail', slug=xsdtype.prefixed_name | anchor) }}">typechain</a></td>
+    <td><a href="{{ url_for('xsdtype_details', slug=xsdtype.prefixed_name | anchor) }}">typechain</a></td>
   </tr>
   {% endfor %}
 </table>
