@@ -2,6 +2,22 @@
 {% block title %}{{ elmdict.elm.prefixed_name }} – Kavaler{% endblock %}
 {% block content %}
 <h1>{{ elmdict.elm.prefixed_name }}</h1>
+<p class="text-muted">
+Data kommer fra XSD'en (via xmlschema's kompilerede model),
+ikke fra featurekatalogets docx.
+</p>
+<h2 class="h4 mt-4">Tilladte under-elementer</h2>
+<p class="text-muted">
+Viser de elementer, der ifølge XSD'en er tilladt som indhold, når
+'{{ elmdict.elm.prefixed_name }}' optræder i et dokument, samt deres
+egenskaber (occurs, nillable). Det er ikke elementet selv, der
+definerer denne liste, men indholdsmodellen for dets type,
+'{{ elmdict.elm.type.prefixed_name }}' — og den type kan selv nedarve
+fra andre typer. Vi viser ikke den rå XSD-tekst direkte, men bruger
+SISSA's <code>xmlschema</code>-bibliotek (Python) til at kompilere
+hele skemaet, inklusive typearv, til én samlet model, og spørger den
+model om hvad der reelt er tilladt.
+</p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
   <tr><th>name</th><th>occurs</th><th>required</th><th>nillable</th></tr>

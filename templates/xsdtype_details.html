@@ -2,6 +2,21 @@
 {% block title %}{{ xsdtype.prefixed_name }} – Kavaler{% endblock %}
 {% block content %}
 <h1>{{ xsdtype.prefixed_name }}</h1>
+<p class="text-muted">
+Data kommer fra XSD'en (via xmlschema's kompilerede model),
+ikke fra featurekatalogets docx.
+</p>
+<h2 class="h4 mt-4">Arvekæde</h2>
+<p class="text-muted">
+Viser arvekæden for XSD-typen '{{ xsdtype.prefixed_name }}',
+fra den øverste rodtype og ned til denne type selv, samt om hver type
+i kæden er abstrakt. Kæden bygges ikke ved at læse XSD'ens rå
+<code>base="..."</code>-attributter direkte, men ved at bruge SISSA's
+<code>xmlschema</code>-bibliotek (Python), som kompilerer hele skemaet
+til én samlet model og løser hver types <code>base_type</code>
+til den faktiske forældretype; vi følger så denne kæde opad,
+til vi når en type uden nogen forælder.
+</p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
   <tr><th>name</th><th>abstract</th></tr>

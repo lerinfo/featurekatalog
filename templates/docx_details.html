@@ -3,6 +3,7 @@
 {% block content %}
 <p class="text-muted pakke-badge">{{ ft.pakke }}</p>
 <h1>{{ ft.navn }}</h1>
+<p class="text-muted">Denne side viser, hvad der står om featuretypen '{{ ft.navn }}' i featurekatalogets docx. Data kommer altså fra docx'en, ikke fra XSD-skemaet.</p>
 
 <dl class="row">
   {% for key, value in ft.items() %}
@@ -15,6 +16,7 @@
 
 {% if ft.attributter %}
 <h2 class="h4 mt-4">Attributter</h2>
+<p class="text-muted">Listen viser kun de attributter, der er defineret direkte for denne klasse. Eventuelt nedarvede attributter fra en overordnet klasse vises ikke.</p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
   <tr><th>Navn</th><th>Type</th><th>Multiplicitet</th><th>Voidable</th><th>Definition</th></tr>
@@ -51,6 +53,7 @@
 
 {% if ft.restriktioner %}
 <h2 class="h4 mt-4">Restriktioner</h2>
+<p class="text-muted">Listen viser kun de restriktioner, der er defineret direkte for denne klasse. Eventuelt nedarvede restriktioner fra en overordnet klasse vises ikke.</p>
 {% for r in ft.restriktioner %}
 <h3 class="h6 mt-3"><code>{{ r.Navn }}</code></h3>
 <pre class="bg-light p-2 rounded">{{ r.Udtryk }}</pre>
