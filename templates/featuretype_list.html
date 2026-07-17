@@ -13,11 +13,11 @@ eller XSD-strukturen (element/type) for den enkelte type.</p>
   <tr>
     <td>{{ ft.navn }}</td>
     <td>{{ ft['Foretrukken term'] }}</td>
-    <td><a href="{{ url_for('featuretype', navn=ft.navn) }}">detaljer</a></td>
+    <td><a href="{{ url_for('docx_details', navn=ft.navn) }}">detaljer</a></td>
     {% if ft.xsd_elm %}
     <td class="font-monospace">{{ ft.xsd_elm.type.prefixed_name }}</td>
     <td>{{ 'abstract' if ft.xsd_elm.type.abstract else '' }}</td>
-    <td><a href="{{ url_for('element_detail', slug=ft.xsd_elm.prefixed_name | anchor) }}">element</a> / <a href="{{ url_for('xsdtype_details', slug=ft.xsd_elm.type.prefixed_name | anchor) }}">type</a></td>
+    <td><a href="{{ url_for('xsdelement_details', slug=ft.xsd_elm.prefixed_name | anchor) }}">element</a> / <a href="{{ url_for('xsdtype_details', slug=ft.xsd_elm.type.prefixed_name | anchor) }}">type</a></td>
     {% else %}
     <td colspan="3" class="text-muted">intet XSD-element</td>
     {% endif %}

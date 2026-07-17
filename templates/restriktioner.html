@@ -10,7 +10,7 @@ det at udtrykket ikke er ens for alle featuretyper der bruger navnet.</p>
   {% for r in restriktioner %}
   <tr>
     <td><code>{{ r.Navn }}</code></td>
-    <td>{% for t in r.Featuretyper %}<a href="{{ url_for('featuretype', navn=t) }}">{{ t }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
+    <td>{% for t in r.Featuretyper %}<a href="{{ url_for('docx_details', navn=t) }}">{{ t }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
     <td>{{ r.Udtryk }}</td>
   </tr>
   {% endfor %}

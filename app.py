@@ -39,7 +39,7 @@ _featuretyper = None
 _schex = None
 _type_tree = None
 _chains = None
-_element_details = None
+_xsdelement_details = None
 
 
 def get_featuretyper():
@@ -116,15 +116,15 @@ def get_chains():
     return _chains
 
 
-def get_element_details():
+def get_xsdelement_details():
     """List of {'elm': element, 'allowed_elms': [children...]} for every schema element."""
-    global _element_details
-    if _element_details is None:
-        _element_details = [
+    global _xsdelement_details
+    if _xsdelement_details is None:
+        _xsdelement_details = [
             {'elm': elm, 'allowed_elms': list(elm.iterchildren())}
             for elm in get_all_xsd_elements()
         ]
-    return _element_details
+    return _xsdelement_details
 
 
 @app.template_filter('anchor')
@@ -139,8 +139,8 @@ def get_by_navn(navn):
     return None
 
 
-def get_element_detail_by_slug(slug):
-    for elmdict in get_element_details():
+def get_xsdelement_detail_by_slug(slug):
+    for elmdict in get_xsdelement_details():
         if anchor_filter(elmdict['elm'].prefixed_name) == slug:
             return elmdict
     return None
@@ -167,7 +167,7 @@ def linkify_filter(value):
         # from the Jinja globals, not flask.url_for directly - see freezer.register_generator
         # note in Frozen-Flask docs: relative_url_for only patches app.jinja_env.globals.
         jinja_url_for = current_app.jinja_env.globals['url_for']
-        return Markup('<a href="{}">{}</a>{}').format(jinja_url_for('featuretype', navn=name), name, suffix)
+        return Markup('<a href="{}">{}</a>{}').format(jinja_url_for('docx_details', navn=name), name, suffix)
     return escape(value)
 
 
@@ -207,20 +207,17 @@ def general_constraints():
 ## DETAILS PAGES (for individual feature types, xsd elemenets or xsd types)
 
 
-@app.route('/featuretype/<navn>/')
-def featuretype(navn):
-    '''
-    Presents most relevant details about a featuretype, from both XSD and docx sources
-    '''
+@app.route('/docx_details/<navn>/')
+def docx_details(navn):
     ft = get_by_navn(navn)
     if ft is None:
         abort(404)
-    return render_template('featuretype.html', ft=ft)
+    return render_template('docx_details.html', ft=ft)
 
 
 @app.route('/xsdelement_details/<slug>/')
-def element_detail(slug):
-    elmdict = get_element_detail_by_slug(slug)
+def xsdelement_details(slug):
+    elmdict = get_xsdelement_detail_by_slug(slug)
     if elmdict is None:
         abort(404)
     return render_template('xsdelement_details.html', elmdict=elmdict)
@@ -242,15 +239,15 @@ freezer = Freezer(app)
 
 
 @freezer.register_generator
-def featuretype_urls():
+def docx_details_urls():
     for ft in get_featuretyper():
-        yield 'featuretype', {'navn': ft['navn']}
+        yield 'docx_details', {'navn': ft['navn']}
 
 
 @freezer.register_generator
-def element_detail_urls():
-    for elmdict in get_element_details():
-        yield 'element_detail', {'slug': anchor_filter(elmdict['elm'].prefixed_name)}
+def xsdelement_details_urls():
+    for elmdict in get_xsdelement_details():
+        yield 'xsdelement_details', {'slug': anchor_filter(elmdict['elm'].prefixed_name)}
 
 
 @freezer.register_generator
