@@ -19,11 +19,37 @@ til vi når en type uden nogen forælder.
 </p>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-top">
-  <tr><th>name</th><th>abstract</th></tr>
+  <tr><th>name</th><th>abstract</th><th>Detaljer om type</th></tr>
   {% for row in chain %}
   <tr>
     <td class="font-monospace">{{ row.prefixed_name }}</td>
     <td>{{ 'abstract' if row.abstract else '' }}</td>
+    <td>{% if row is not eq xsdtype %}<a href="{{ url_for('xsdtype_details', slug=row.prefixed_name | anchor) }}">detaljer</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+<h2 class="h4 mt-4">Elementer defineret direkte på denne type</h2>
+<p class="text-muted">
+Kun de elementer, som '{{ xsdtype.prefixed_name }}' selv tilføjer til indholdsmodellen —
+ikke de elementer, den nedarver fra typer højere oppe i arvekæden.
+</p>
+<p class="text-muted small">
+Listen er en flad <code>sequence</code> — alle elementerne skal med, det er ikke et
+valg imellem dem (<code>choice</code>). Der findes pt. ingen <code>choice</code> noget
+sted i det underliggende skema; et build-time-tjek fejler højlydt, hvis det nogensinde
+ændrer sig.
+</p>
+<div class="table-responsive">
+<table class="table table-striped table-bordered align-top">
+  <tr><th>name</th><th>occurs</th><th>required</th><th>nillable</th></tr>
+  {% for elm in own_elm_objs %}
+  <tr>
+    <td class="font-monospace">{{ elm.prefixed_name }}</td>
+    <td>{{ elm.occurs }}</td>
+    <td>{{ 'required' if elm.occurs[0] > 0 else '' }}</td>
+    <td>{{ 'nillable' if elm.nillable else '' }}</td>
   </tr>
   {% endfor %}
 </table>

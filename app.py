@@ -84,6 +84,39 @@ def get_xsd_element_by_navn(navn):
     return None
 
 
+def _own_content_group(xsd_type):
+    """The XsdGroup holding xsd_type's own (non-inherited) content - the last item of
+    xsd_type.content if it has a base type, or the whole content if it's a root type."""
+    if not xsd_type.content:
+        return None
+    return xsd_type.content[-1] if xsd_type.derivation == 'extension' else xsd_type.content
+
+
+def _has_choice(group):
+    """True if an xs:choice appears anywhere in group, at any nesting depth."""
+    if group.model == 'choice':
+        return True
+    return any(hasattr(item, 'model') and _has_choice(item) for item in group)
+
+
+def _assert_own_content_is_flat(xsd_type):
+    """The 'Elementer defineret direkte på denne type' table on xsdtype_details.html
+    lists a type's own elements as a plain AND-list - that's only accurate because
+    every type's own content in the current XSD happens to be choice-free (verified
+    2.2_ler.xsd has none). If a future XSD swap introduces an xs:choice into some
+    type's own content, that table would silently misrepresent 'either/or' as
+    'all required'. Fail loudly at build time instead, so this gets caught and the
+    display gets redesigned before the site ships with wrong-looking data."""
+    own = _own_content_group(xsd_type)
+    if own is not None and _has_choice(own):
+        raise RuntimeError(
+            f"{xsd_type.prefixed_name}'s own content contains an xs:choice - the flat "
+            "'Elementer defineret direkte på denne type' table (xsdtype_details.html) no "
+            "longer accurately represents it. The display needs to be redesigned to show "
+            "choice/alternatives before the site can be rebuilt."
+        )
+
+
 def get_type_tree():
     """List of (depth, xsdtype), walking the type hierarchy from AbstractGMLType down,
     filtered to only the types actually used by a featurekatalog featuretype (ie. the
@@ -106,6 +139,8 @@ def get_type_tree():
             for depth, xsdtype in schex.walk_type_hierarchy(absgmltype)
             if xsdtype in relevant_types
         ]
+        for _depth, xsdtype in _type_tree:
+            _assert_own_content_is_flat(xsdtype)
     return _type_tree
 
 
@@ -121,6 +156,23 @@ def get_chains():
             chains.append((xsdtype, chain))
         _chains = chains
     return _chains
+
+
+def get_element_defining_types(xsd_type):
+    """Dict of {sub-element prefixed_name: xsd_type} mapping every element allowed by
+    xsd_type's content model to the type - xsd_type itself, or one of its ancestors -
+    that actually introduces it. xsd_type.content already includes inherited elements
+    flattened in, so without walking the ancestor chain there's no way to tell which
+    level of the inheritance chain originally declares a given element."""
+    schex = get_schex()
+    chain = [xsd_type] + list(schex.iter_type_ancestors(xsd_type))
+    chain.reverse()
+    defining_type = {}
+    for t in chain:
+        for e in t.content.iter_elements():
+            if e.prefixed_name not in defining_type:
+                defining_type[e.prefixed_name] = t
+    return defining_type
 
 
 def get_xsdelement_details():
@@ -247,7 +299,20 @@ def xsdtype_details(slug):
     if result is None:
         abort(404)
     xsdtype, chain = result
-    return render_template('xsdtype_details.html', xsdtype=xsdtype, chain=chain)
+    defining_types = get_element_defining_types(xsdtype)
+    own_elements = {t: [] for t in chain}
+    for name, defining_type in defining_types.items():
+        own_elements[defining_type].append(name)
+    for names in own_elements.values():
+        names.sort()
+    own_elm_objs = [e for e in xsdtype.content.iter_elements() if defining_types[e.prefixed_name] is xsdtype]
+    return render_template(
+        'xsdtype_details.html',
+        xsdtype=xsdtype,
+        chain=chain,
+        own_elements=own_elements,
+        own_elm_objs=own_elm_objs,
+    )
 
 
 ## FREEZER (static site generation)
