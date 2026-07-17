@@ -247,9 +247,16 @@ def describe_xsd_element_type(elm):
         return _describe_simple_type(xsd_type)
     if xsd_type.content_type_label == 'simple':
         description = _describe_simple_type(xsd_type.content)
-        attr_names = [a.prefixed_name for a in (xsd_type.attributes or {}).values() if a.prefixed_name]
-        if attr_names:
-            description += ' [attrs: ' + ', '.join(attr_names) + ']'
+        attr_descriptions = []
+        for a in (xsd_type.attributes or {}).values():
+            if not a.prefixed_name:
+                continue
+            label = a.prefixed_name
+            if a.use == 'required':
+                label += ' (required)'
+            attr_descriptions.append(label)
+        if attr_descriptions:
+            description += ' [attrs: ' + ', '.join(attr_descriptions) + ']'
         return description
     return xsd_type.prefixed_name or '(anonym, element content)'
 
