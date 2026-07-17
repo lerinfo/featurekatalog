@@ -2,18 +2,29 @@
 {% block title %}featurekatalog{% endblock %}
 {% block content %}
 <h1>featurekatalog</h1>
-<p class="lead">Som i kava + LER!</p>
 <p>
-Et lille værktøj der genererer dokumentation for LER-modellen (Featurekatalog), så man kan slå op
-hvad der er tilladt, i stedet for at læse XSD'en eller featurekatalog-docx'en direkte.
+Denne side indeholder en "omskrevet" version af visse aspekter
+af den officielle dokumentation fra ler.dk; 
+primært det såkaldte featurekatalog og tilhørende XML Schema.
 </p>
 <p>
-<em>Version 1 — Flask + Frozen-Flask, Bootstrap. Erstatter (på sigt) mkdocs-udgaven. Kun featurekatalog-data
-(featuretyper, attributter, restriktioner) er portet indtil videre — Elements/Type Tree/Type Chains fra XSD
-mangler stadig.</em>
+Motivation: Jeg har tit haft brug for at tjekke, hvad der var
+tilladt ift LER, herunder hvornår hvilke attributter var påkrævede,
+og jeg syntes det var besværligt/trægt at læse den officielle
+LER-dokumentation (dels docx og dels XSD-filer).
 </p>
-<ul>
-  <li><a href="{{ url_for('featuretype_list') }}">Featuretyper</a> — alle 30 featuretyper med attributter, associationsroller og restriktioner</li>
-  <li><a href="{{ url_for('restriktioner') }}">Restriktioner</a> — alle restriktioner på tværs af featuretyper, grupperet</li>
-</ul>
+<p>
+For nyligt har jeg implementeret min egen LER-robot,
+og i den forbindelse endte jeg med, som et biprodukt, at skrive
+nærværende dokumentation. Jeg håber på at publicere førnævnte
+LER-robot som open source inden længe.
+</p>
+<p>
+Kildekoden samt uddybende teknisk baggrund for denne side
+kan findes på: <a href="https://github.com/lerinfo/featurekatalog">https://github.com/lerinfo/featurekatalog</a>.
+</p>
+<p>
+Mvh Thomas Wessel, <a href="mailto:mrvelle@gmail.com">mrvelle@gmail.com</a>
+</p>
+
 {% endblock %}

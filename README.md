@@ -4,7 +4,9 @@ Jeg har tit haft brug for at tjekke, hvad der var tilladt ift LER,
 herunder hvornår hvilke attributter var påkrævede, og jeg syntes
 det var besværligt/trægt at læse den officielle LER-dokumentation.
 
-Jeg har samlet ovenstående information i en hjemmeside, hér.
+Jeg har samlet ovenstående information i en hjemmeside, i dette repo.
+Resultatet publiceres på:
+[https://lerinfo.github.io/featurekatalog/](https://lerinfo.github.io/featurekatalog/).
 
 ## Detaljer omkr udarbejdelsen af denne dokumentation
 
