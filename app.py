@@ -186,7 +186,7 @@ def featuretype_list():
     return render_template('featuretype_list.html', grupper=grupper.items())
 
 
-@app.route('/featuretyper/<navn>/')
+@app.route('/featuretype/<navn>/')
 def featuretype(navn):
     ft = get_by_navn(navn)
     if ft is None:
