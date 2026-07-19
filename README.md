@@ -61,3 +61,18 @@ git push
 
 Skriver statisk HTML til `docs/` (via Frozen-Flask, inkl. en `.nojekyll`-fil så
 GitHub ikke forsøger at Jekyll-processere sitet).
+
+## Generér restriktioner som YAML
+
+```bash
+python3 build_constraint_yml.py
+```
+
+Skriver én YAML-fil pr. featuretype til `constraints/` (fx `constraints/Ledning.yml`),
+med de restriktioner featuretypen har fra docx'en (`feature_type`, `name`, `expression`).
+Featuretyper uden restriktioner får ingen fil.
+
+Formålet er at give et maskinlæsbart udtræk af restriktionerne til brug i andre
+repos/værktøjer (fx et der implementerer dem i Schematron) — uden fortolkning
+oveni (ingen koder, kategorisering e.l.). Kører uafhængigt af Flask-app'en og
+freeze-processen; deler kun `featurekatalog.py`-parseren.
