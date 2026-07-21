@@ -91,6 +91,9 @@ def parse_featurekatalog(path):
     return featuretyper
 
 
+EFTER_SKAERINGSDATO_RE = re.compile(r'efter\s+skæringsdatoen', re.IGNORECASE)
+
+
 def all_restriktioner(featuretyper):
     """Group restriktioner by identical (Navn, Udtryk) and list which featuretyper share
     each exact rule. Sorted by Navn, then by group size descending, so the different
@@ -99,7 +102,12 @@ def all_restriktioner(featuretyper):
     for ft in featuretyper:
         for r in ft['restriktioner']:
             key = (r['Navn'], r['Udtryk'])
-            group = groups.setdefault(key, {'Navn': r['Navn'], 'Featuretyper': [], 'Udtryk': r['Udtryk']})
+            group = groups.setdefault(key, {
+                'Navn': r['Navn'],
+                'Featuretyper': [],
+                'Udtryk': r['Udtryk'],
+                'EfterSkæringsdato': bool(EFTER_SKAERINGSDATO_RE.search(r['Udtryk'])),
+            })
             group['Featuretyper'].append(ft['navn'])
 
     restriktioner = list(groups.values())
